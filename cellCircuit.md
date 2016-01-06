@@ -25,14 +25,19 @@ any living tissue.
 
 ##Cross-disciplinarity
 
+This approach is heavily cross-disciplinary, we could introduce several domains:
 
+1. **Chemistry** for the chemical to electronics interface
+1. **Electronics** for the circuitry and proper technology
+1. **Cytology** for the integration of the cellular circuits into a living cell
+1. **Neuroscience** for the integration of the cellular circuits into the neurons
 
 ##Practical use
 
 We could identify several domains that could make use of this novel approach:
 
 1. **Electronic pharmacy**: the drugs could be electronic circuits that could be delivered to the cells and does some smart curing processes, for example count number of centrioles in the cell if the number exceeds normal level (this is the characteristic of cancer cell), destroy it.
-1. **Computing living tissue** that could do some information processing for example inside someones skin.
+1. **Computing living tissue** that could do some information processing for example inside someones skin. We could think of computing plants, even bacteria colonies.
 1. **Natural neural network or brain to computer interface** the cellular circuits could be connected in some complex device with option to communicate wireless that could be used as gateway to the brain providing the option to brain -- brain interface, brain -- cloud interface or even used to communicate with external robotic devices like prosthesis exoskeletons etc. This gateway device could be naturally grown in the brain.
 
 
