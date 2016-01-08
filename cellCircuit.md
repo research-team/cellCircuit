@@ -11,8 +11,9 @@ the electronic to bio world on the cellular level.
 
 ##Our idea
 
-The idea is to minimize the propose approach to put some electronic circuits in the cells
-and do some extra work not originally done by the biological cell.
+The idea is to minimize the proposed devices to  fit in a eukaryotic cell, to put
+electronic circuits inside cells. This electronics could do some extra work that was not originally
+done by the biological cell.
 
 For example: we could think of:
 - processing some simple computations in the cell
@@ -20,8 +21,8 @@ For example: we could think of:
 - creating RLC circuits in the cell for wireless communications
 
 Overall this could be visioned as a new direction in pharmacy as electronic drugs,
-brain - computer interface, brain - brain interface, here brain could be also though as almost
-any living tissue.
+brain - computer interface, brain - brain interface, in general: almost any living tissue
+to any living tissue electronic interfaces.
 
 ##Cross-disciplinarity
 
