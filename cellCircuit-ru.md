@@ -4,26 +4,18 @@
 
 В последнее время был продемострирован значительный успех в [подключении питания](http://www.nature.com/ncomms/2015/151207/ncomms10070/pdf/ncomms10070.pdf) электронной схемы (CMOS) от АТФ.
 
-The team from Columbia University managed to power the CMOS circuit with the biological power
-of ATP. This should be mentioned that currently only macro model was developed.
-This could be estimated as the breaking through in creation of the interface from
-the electronic to bio world on the cellular level.
+Это удалось команде из Колумбийского университета. На данный момент разработана только макро модель. Мы оцениваем это как прорыв в области создании био-электронного интерфейса на клеточном уровне.
 
-##Our idea
+##Наша идея
 
-The idea is to minimize the proposed devices to  fit in a eukaryotic cell, to put
-electronic circuits inside cells. This electronics could do some extra work that was not originally
-done by the biological cell.
+Идея состоит в том, чтобы минимизировать предлагаемые исследователями устройства, чтобы они могли поместиться в эукариотической клетке. Такие электронные схемы могли бы предоставить дополнительный функционал, первоначально не пердусмотернный биологической клеткой.
 
-For example: we could think of:
-- processing some simple computations in the cell
-- creating computational cellular network in the living tissue
-- creating RLC circuits in the cell for wireless communications in the neuronal axons that usually have enough
-length to place an antenna
+Например:
+- обработка некоторых простых вычислений в клетке
+- создание вычислительной клеточной сети в живой ткани
+- создание колебательных контуров в клетке для беспроводной связи в нейронных аксонов, которые, как правило, имеют достаточную длину, чтобы разместить антенну
 
-Overall this could be visioned as a new direction in pharmacy as electronic drugs,
-brain - computer interface, brain - brain interface, in general: almost any living tissue
-to any living tissue electronic interfaces.
+В целом, это может быть рассмотрено как новые направления: в фармацевтике – "электронное лекарство", интерфейс мозг-компьютер, интерфейс мозг-мозг, или в общем: электронные интрефейсы любой живой ткани на любых живых.
 
 ##Cross-disciplinarity
 
