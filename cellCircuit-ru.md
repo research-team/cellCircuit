@@ -17,16 +17,15 @@
 
 В целом, это может быть рассмотрено как новые направления: в фармацевтике – "электронное лекарство", интерфейс мозг-компьютер, интерфейс мозг-мозг, или в общем: электронные интрефейсы любой живой ткани на любых живых.
 
-##Cross-disciplinarity
+##Кросс-дисциплинароность
 
-This approach is heavily cross-disciplinary, we could introduce several domains:
+Так как данный подход сам по себе кросс-дисциплинарен, мы могли бы ввести несколько предметных областей:
+1. **Chemistry** интерфейсы между биохимическими элементами к электронным элементам
+1. **Electronics** Технология клеточной электроники
+1. **Cytology** Интеграция клеточной электроники в живую клетку
+1. **Neuroscience** Интеграция клеточной электроники в нейроны
 
-1. **Chemistry** for the chemical to electronics interface
-1. **Electronics** for the circuitry and proper technology
-1. **Cytology** for the integration of the cellular circuits into a living cell
-1. **Neuroscience** for the integration of the cellular circuits into the neurons
-
-##Problems
+##Задачи
 
 There could be identified several problems even on the stage of preliminary analysis:
 
