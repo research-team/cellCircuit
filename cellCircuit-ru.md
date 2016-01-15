@@ -1,8 +1,8 @@
-#Cell circuits
+#Клеточные схемы
 
-##Background
+##Введение
 
-Recently there were some interesting success in the field of biologically [powered circuits](http://www.nature.com/ncomms/2015/151207/ncomms10070/pdf/ncomms10070.pdf).
+В последнее время был продемострирован значительный успех в [подключении питания](http://www.nature.com/ncomms/2015/151207/ncomms10070/pdf/ncomms10070.pdf) электронной схемы (CMOS) от АТФ.
 
 The team from Columbia University managed to power the CMOS circuit with the biological power
 of ATP. This should be mentioned that currently only macro model was developed.
