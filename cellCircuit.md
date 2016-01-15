@@ -18,7 +18,8 @@ done by the biological cell.
 For example: we could think of:
 - processing some simple computations in the cell
 - creating computational cellular network in the living tissue
-- creating RLC circuits in the cell for wireless communications
+- creating RLC circuits in the cell for wireless communications in the neuronal axons that usually have enough
+length to place an antenna
 
 Overall this could be visioned as a new direction in pharmacy as electronic drugs,
 brain - computer interface, brain - brain interface, in general: almost any living tissue
@@ -33,6 +34,15 @@ This approach is heavily cross-disciplinary, we could introduce several domains:
 1. **Cytology** for the integration of the cellular circuits into a living cell
 1. **Neuroscience** for the integration of the cellular circuits into the neurons
 
+##Problems
+
+There could be identified several problems even on the stage of preliminary analysis:
+
+1. The energy consumption of the electronic schema could be too exhausting for the living cell, this could be possibly mitigated in neurons via help of astrocytes that could provide increased glucose from the blood stream.
+1. There could be a problem in placement of the antenna in an axon.
+1. There could be problem in minimization of the bio-electrical adapter to nano-sizes. 
+
+
 ##Practical use
 
 We could identify several domains that could make use of this novel approach:
@@ -41,6 +51,9 @@ We could identify several domains that could make use of this novel approach:
 1. **Computing living tissue** that could do some information processing for example inside someones skin. We could think of computing plants, even bacteria colonies.
 1. **Natural neural network or brain to computer interface** the cellular circuits could be connected in some complex device with option to communicate wireless that could be used as gateway to the brain providing the option to brain -- brain interface, brain -- cloud interface or even used to communicate with external robotic devices like prosthesis exoskeletons etc. This gateway device could be naturally grown in the brain.
 
+###Potentially interested companies
 
-
-
+1. Intel and other CPU companies
+1. Pharmaceutical companies
+1. Robotics companies
+1. Prosthesis companies
