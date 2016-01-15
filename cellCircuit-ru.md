@@ -20,31 +20,33 @@
 ##Кросс-дисциплинароность
 
 Так как данный подход сам по себе кросс-дисциплинарен, мы могли бы ввести несколько предметных областей:
-1. **Chemistry** интерфейсы между биохимическими элементами к электронным элементам
+1. **Chemistry** Создание биоэлектрического адаптера
 1. **Electronics** Технология клеточной электроники
 1. **Cytology** Интеграция клеточной электроники в живую клетку
 1. **Neuroscience** Интеграция клеточной электроники в нейроны
 
 ##Задачи
 
-There could be identified several problems even on the stage of preliminary analysis:
+Даже на этапе предварительного анализа можно выделить несколько существенных задач:
 
-1. The energy consumption of the electronic schema could be too exhausting for the living cell, this could be possibly mitigated in neurons via help of astrocytes that could provide increased glucose from the blood stream.
-1. There could be a problem in placement of the antenna in an axon.
-1. There could be problem in minimization of the bio-electrical adapter to nano-sizes. 
+1. Потребление энергии электической схемы может быть слишком ресурсоёмким для живой клетки, что может быть, возможно, смягчено в нейронах за счёт влияния астроцитов, которые могли бы обеспечить повышение уровня глюкозы из крови.
+1. Возможно возникнет проблема в размещении антенны в аксоне.
+1. Возможно возникнет проблема в минимизации биоэлектрической адаптера до нано-размеров.
+1. Возможно возникнет проблема окисления или других химических разрушений.
+
+##Практическое использование
+
+Мы можем описать несколько предметных областей, в которых возможно ииспользовать эти технологии:
+
+1. **Интерфейс нервная "система-протез"**: В моторные нейроны монтируется передающая схема, осуществляющая интерфейс и подключение внешних робототезированных протезов неинвазивно.
+1. **Электронная фармацевтика**: В медикаментах могут быть использованы электронные схемы, которые будучи доставленными к клеткам, смогут произвести некоторые вычисления, например, посчитать количество центриолей в клетке, и если число превышает нормальный уровень (что является характеристикой раковых клеток), уничтожить её.
+1. **Вычислительная живую ткань** В любой живой ткани может производится вычислительная активность, включая насекомые, растения, или даже колоний бактерий.
+1. **"Мозг-компьютер" интерфейс** Интерфейс между клеточными схемами, кеоторые могут быть связаны с некоторым сложным устройством по беспроводному протоколу, например, интерфейсы мозг-мозг, мозг-облако. 
 
 
-##Practical use
+###Потенциально заинтересованные компании
 
-We could identify several domains that could make use of this novel approach:
-
-1. **Electronic pharmacy**: the drugs could be electronic circuits that could be delivered to the cells and does some smart curing processes, for example count number of centrioles in the cell if the number exceeds normal level (this is the characteristic of cancer cell), destroy it.
-1. **Computing living tissue** that could do some information processing for example inside someones skin. We could think of computing plants, even bacteria colonies.
-1. **Natural neural network or brain to computer interface** the cellular circuits could be connected in some complex device with option to communicate wireless that could be used as gateway to the brain providing the option to brain -- brain interface, brain -- cloud interface or even used to communicate with external robotic devices like prosthesis exoskeletons etc. This gateway device could be naturally grown in the brain.
-
-###Potentially interested companies
-
-1. Intel and other CPU companies
-1. Pharmaceutical companies
-1. Robotics companies
-1. Prosthesis companies
+1. Intel и другие производители CPU
+1. Фармацевтические компании
+1. Робототехнческие компании
+1. Компании, выпускающие протезы 
