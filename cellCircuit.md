@@ -16,12 +16,12 @@ electronic circuits inside cells. This electronics could do some extra work that
 done by the biological cell.
 
 For example: we could think of:
-- processing some simple computations in the cell
+- processing some simple computations in a cell
 - creating computational cellular network in the living tissue
-- creating RLC circuits in the cell for wireless communications in the neuronal axons that usually have enough
+- creating RLC circuits in a cell for wireless communications in the neuronal axons, that usually have enough
 length to place an antenna
 
-Overall this could be visioned as a new direction in pharmacy as electronic drugs,
+Overall this could be visioned as a new direction: in pharmacy as electronic drugs,
 brain - computer interface, brain - brain interface, in general: almost any living tissue
 to any living tissue electronic interfaces.
 
@@ -29,7 +29,7 @@ to any living tissue electronic interfaces.
 
 This approach is heavily cross-disciplinary, we could introduce several domains:
 
-1. **Chemistry** for the chemical to electronics interface
+1. **Chemistry** for the bio-electronics interface
 1. **Electronics** for the circuitry and proper technology
 1. **Cytology** for the integration of the cellular circuits into a living cell
 1. **Neuroscience** for the integration of the cellular circuits into the neurons
@@ -47,8 +47,8 @@ There could be identified several problems even on the stage of preliminary anal
 
 We could identify several domains that could make use of this novel approach:
 
-1. **Electronic pharmacy**: the drugs could be electronic circuits that could be delivered to the cells and does some smart curing processes, for example count number of centrioles in the cell if the number exceeds normal level (this is the characteristic of cancer cell), destroy it.
-1. **Computing living tissue** that could do some information processing for example inside someones skin. We could think of computing plants, even bacteria colonies.
+1. **Electronic pharmacy**: the drugs could be electronic circuits that could be delivered to cells and do some smart curing processes: count number of centrioles in a cell if the number exceeds normal level (this is the characteristic of cancer cell), destroy it.
+1. **Computing living tissue** this technology could do some information processing for example inside someones skin. We could think of computing plants, even bacteria colonies.
 1. **Natural neural network or brain to computer interface** the cellular circuits could be connected in some complex device with option to communicate wireless that could be used as gateway to the brain providing the option to brain -- brain interface, brain -- cloud interface or even used to communicate with external robotic devices like prosthesis exoskeletons etc. This gateway device could be naturally grown in the brain.
 
 ###Potentially interested companies
