@@ -57,3 +57,14 @@ We could identify several domains that could make use of this novel approach:
 1. Pharmaceutical companies
 1. Robotics companies
 1. Prosthesis companies
+1. Bio sensors
+
+###Implantable(s)
+
+I have discussed the proposal (and the referenced paper) with a colleague who is an expert in sensor technologies and app development - his comment may be summarised as follows:
+
+From what I’ve read there’s been a lot of interest in the last few years related to how best to interface electronics to bodily systems. Apparently it’s (as you’d expect) quite difficult given the nervous system is electrochemical and silicon chips are electrical. So on that basis power harvesting from bodily systems should also be important. And I can see why you’d take an interest in it as implantable(s) would solve a lot of data gathering issues related to human context.
+ 
+I remember from years ago that ATP is the main source of accessible energy in human cells so it seems a very interesting piece of research. The power output is very low though, so I’m not sure how useful it would be for sending data wirelessly out of the body unless an antenna was very near the skin. However, I seem to remember reading about researchers looking at implantable electronics to correct for physiological problems (maybe, e.g. hand trembling, or to bypass damaged nerves in paralysis or blindness), so the low power potential may not be such an issue for that.
+
+I think the proposed list of interested companies may be increased to include companies who develop and manufacture sensors?
