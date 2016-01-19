@@ -68,3 +68,7 @@ From what I’ve read there’s been a lot of interest in the last few years rel
 I remember from years ago that ATP is the main source of accessible energy in human cells so it seems a very interesting piece of research. The power output is very low though, so I’m not sure how useful it would be for sending data wirelessly out of the body unless an antenna was very near the skin. However, I seem to remember reading about researchers looking at implantable electronics to correct for physiological problems (maybe, e.g. hand trembling, or to bypass damaged nerves in paralysis or blindness), so the low power potential may not be such an issue for that.
 
 I think the proposed list of interested companies may be increased to include companies who develop and manufacture sensors?
+
+##Solution
+
+...
