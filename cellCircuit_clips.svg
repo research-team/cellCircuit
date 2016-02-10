@@ -52,9 +52,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.68934181"
-     inkscape:cx="511.98497"
-     inkscape:cy="454.09616"
+     inkscape:zoom="2.7573672"
+     inkscape:cx="395.8397"
+     inkscape:cy="495.04033"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -237,9 +237,10 @@
          id="tspan5110">group</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 8;stroke-dashoffset:0"
-       d="m 400.33157,682.8714 0,-472.86089 158.5367,0"
+       d="m 400.33157,475.42714 0,-265.41663 158.5367,0"
        id="path5007"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
     <path
        sodipodi:type="arc"
        style="fill:#ffffff;fill-opacity:1;stroke:#9295a2;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -296,7 +297,7 @@
     <path
        inkscape:connector-curvature="0"
        id="path5009"
-       d="m 174.86827,549.99382 0,-339.98331 -158.536697,0"
+       d="m 174.86827,469.48224 0,-259.47173 -158.536697,0"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 8;stroke-dashoffset:0"
        sodipodi:nodetypes="ccc" />
     <path
