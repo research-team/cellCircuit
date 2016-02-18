@@ -10,5 +10,4 @@ https://trello.com/b/ftayBVQm/cellcircuit
 English description:
 https://github.com/research-team/cellCircuit/blob/master/cellCircuit.md
 
-Russian description:
-https://github.com/research-team/cellCircuit/blob/master/cellCircuit-ru.md
+[Russian description:](https://github.com/research-team/cellCircuit/blob/master/cellCircuit-ru.md)
