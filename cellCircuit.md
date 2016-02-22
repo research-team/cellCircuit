@@ -11,26 +11,23 @@ the electronic to bio world on the cellular level.
 
 ##Our idea
 
-The idea is to minimize the proposed devices to  fit in a eukaryotic cell, to put
-electronic circuits inside cells. This electronics could do some extra work that was not originally
-done by the biological cell.
+![principal schema](model.png)
 
-For example: we could think of:
-- processing some simple computations in a cell
-- creating computational cellular network in the living tissue
-- creating RLC circuits in a cell for wireless communications in the neuronal axons, that usually have enough
-length to place an antenna
+We propose the hundreds nano-meters device with three main parts:
 
-Overall this could be visioned as a new direction: in pharmacy as electronic drugs,
-brain - computer interface, brain - brain interface, in general: almost any living tissue
-to any living tissue electronic interfaces.
+* FET - Sensor
+* SA - Sensor signal amplifier
+* RF transmitter with antenna
+* PA - Power amplifier
+
+Sensor could be the FET nano-fiber where the gate is attached to a membrane and is managing the electric current in Sensor signal amplifier. Whole device is been surrounded with phosphor-lipid layer that with the ATPhase could be the natural source of the energy collected and then transferred by Power amplifier. 
 
 ##Cross-disciplinarity
 
 This approach is heavily cross-disciplinary, we could introduce several domains:
 
+1. **Bio-Electronics** for the circuitry and proper technology
 1. **Chemistry** for the bio-electronics interface
-1. **Electronics** for the circuitry and proper technology
 1. **Cytology** for the integration of the cellular circuits into a living cell
 1. **Neuroscience** for the integration of the cellular circuits into the neurons
 
