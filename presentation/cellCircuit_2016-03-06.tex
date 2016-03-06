@@ -1,0 +1,188 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+%\documentclass{beamer}
+\documentclass[12pt]{beamer}
+\usepackage{keynote-portfolio}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[CellCircuit]{CellCircuit} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Max Talanov} % Your name
+\institute[IR ITIS KFU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+IR ITIS KFU \\ % Your institution for the title page
+\medskip
+\textit{max.talanov@gmail.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{The problem} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{How many neurons and how many channels?}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\begin{enumerate}
+\item How many channels are used in EEG?
+\item How many channels are used in electrophysiology (multielectrode array)?
+\item How many channels was used to discover neurons of place?
+\end{enumerate}
+
+\column{.6\textwidth} % Right column and width
+%------------------------------------------------
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{WholeCellPatchClamp-03}
+\end{figure}
+%------------------------------------------------
+\end{columns}
+\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+\section{Sensor-transmitter}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Sensor-transmitter}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{cellCircuit_transmitter}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Bio-electronic adapter}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{power}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Micro-meter RF transmitter}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{transmitter}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Most interesting works 2015}
+\begin{itemize}
+\item Jared M. Roseman, Jianxun Lin, Siddharth Ramakrishnan, Jacob K. Rosenstein & Kenneth L. Shepard Hybrid integrated biological–solid-state system powered with adenosine triphosphate, Nature communications (2015)
+\item Himes, C., Carlson, E., Ricchiuti, R. J., Otis, B. P. & Parviz, B. A. Ultra low voltage nanoelectronics powered directly, and solely, from a tree. IEEE Trans. Nanotechnol. 9, 2–5 (2010).
+\item Mercier, P. P., Lysaght, A. C., Bandyopadhyay, S., Chandrakasan, A. P. & Stankovic, K. M. Energy extraction from the biologic battery in the inner ear. Nat. Biotechnol. 30, 1240–1243 (2012).
+\item Halamkova, L. et al. Implanted Biofuel Cell Operating in a Living Snail. J. Am. Chem. Soc. 134, 5040–5043 (2012).
+\item Seifert, K., Fendler, K. & Bamberg, E. Charge transport by ion translocating membrane proteins on solid supported membranes. Biophys. J. 64, 384–391 (1993).
+\item Naumann, R. et al. Coupling of proton translocation through ATPase incorporated into supported lipid bilayers to an electrochemical process. Bioelectrochem. Bioenerg. 42, 241–247 (1997).
+\item Ikematsu, M., Sugiyama, Y., Iseki, M., Muneyuki, E. & Mizukami, A. Direct reconstitution of bacteriorhodopsin into planar phospholipid bilayers-- detergent effect. Biophys. Chem. 54, 155–164 (1995).
+\item Horn, C. & Steinem, C. Photocurrents generated by bacteriorhodopsin adsorbed on nano-black lipid membranes. Biophys. J. 89, 1046–1054 (2005).
+\item Choi, J. et al. Matching the power, voltage, and size of biological systems: a nW-scale, 0.023-mm 3 pulsed 33-GHz radio transmitter operating from a 5kT/q-supply voltage. IEEE Trans. Circuits Syst. 62, 1950–1958 (2015).
+\item Kasianowicz, J. J., Brandin, E., Branton, D. & Deamer, D. W. Characterization of individual polynucleotide molecules using a membrane channel. Proc. Natl Acad. Sci. USA 93, 13770–13773 (1996).
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\end{document} 
