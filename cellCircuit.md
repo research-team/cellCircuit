@@ -11,7 +11,9 @@ the electronic to bio world on the cellular level.
 
 ##Our idea
 
-![principal schema](model.png)
+###Bio-electronics
+
+![bio-electronics schema](model.png)
 
 We propose the hundreds nano-meters device with three main parts:
 
@@ -21,6 +23,12 @@ We propose the hundreds nano-meters device with three main parts:
 * PA - Power amplifier
 
 Sensor could be the FET nano-fiber where the gate is attached to a membrane and is managing the electric current in Sensor signal amplifier. Whole device is been surrounded with phosphor-lipid layer that with the ATPhase could be the natural source of the energy collected and then transferred by Power amplifier. 
+
+###Bio-sensing
+
+![bacteria-sensing](bacteria_sensing.png)
+
+
 
 ##Cross-disciplinarity
 
