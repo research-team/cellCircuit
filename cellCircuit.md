@@ -28,7 +28,10 @@ Sensor could be the FET nano-fiber where the gate is attached to a membrane and 
 
 ![bacteria-sensing](bacteria_sensing.png)
 
-
+The second way is to use a genetically modified bacteria with pills and "ring" DNA.
+The size of a bacteria 1-5 μm that fits neuron.
+Bacteria could connect to a neuron using pills that could provide sensing the electrical activity option.
+When the spikes is been fired by a neuron this should trigger an electrical field on the boundary of bacteria pill and this in its turn should trigger the circular electrical current around the bacterial DNA.
 
 ##Cross-disciplinarity
 

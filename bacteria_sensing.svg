@@ -132,9 +132,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.166403"
-     inkscape:cx="397.51318"
-     inkscape:cy="753.407"
+     inkscape:zoom="0.82477147"
+     inkscape:cx="334.34234"
+     inkscape:cy="682.65855"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -156,6 +156,21 @@
     </rdf:RDF>
   </metadata>
   <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Layer 0"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#5d5d5d;fill-opacity:1;stroke:none"
+       id="rect3031"
+       width="745.66113"
+       height="623.20294"
+       x="-3.7528721e-06"
+       y="-3.6879241"
+       ry="0" />
+  </g>
+  <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
@@ -173,7 +188,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Layer 2">
+     inkscape:label="Layer 2"
+     sodipodi:insensitive="true">
     <rect
        transform="matrix(0.96592583,0.25881905,-0.25881905,0.96592583,0,0)"
        ry="11.647277"
@@ -225,16 +241,16 @@
        id="text6136"
        y="-89.784851"
        x="575.95544"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bfbfbf;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         style="font-size:32px;fill:#4d4d4d;fill-opacity:1"
+         style="font-size:32px;fill:#bfbfbf;fill-opacity:1"
          y="-89.784851"
          x="575.95544"
          id="tspan6138"
          sodipodi:role="line">bacteria</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bfbfbf;fill-opacity:1;stroke:none;font-family:Sans"
        x="555.79211"
        y="46.355286"
        id="text6140"
@@ -244,13 +260,14 @@
          id="tspan6142"
          x="555.79211"
          y="46.355286"
-         style="font-size:32px;fill:#4d4d4d;fill-opacity:1">peel</tspan></text>
+         style="font-size:32px;fill:#bfbfbf;fill-opacity:1">peel</tspan></text>
     <a
        id="a6148"
-       transform="translate(8,-8)">
+       transform="translate(8,-8)"
+       style="fill:#bfbfbf;fill-opacity:1">
       <text
          xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bfbfbf;fill-opacity:1;stroke:none;font-family:Sans"
          x="282.0737"
          y="3.4544177"
          id="text6144"
@@ -260,20 +277,21 @@
            id="tspan6146"
            x="282.0737"
            y="3.4544177"
-           style="font-size:32px;fill:#4d4d4d;fill-opacity:1">electrical current</tspan></text>
+           style="font-size:32px;fill:#bfbfbf;fill-opacity:1">electrical current</tspan></text>
     </a>
     <a
        id="a6152"
-       transform="translate(25,-40)">
+       transform="translate(25,-40)"
+       style="fill:#bfbfbf;fill-opacity:1">
       <text
          transform="matrix(0.96592583,0.25881905,-0.25881905,0.96592583,0,0)"
          sodipodi:linespacing="125%"
          id="text6154"
          y="4.3174729"
          x="475.90161"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bfbfbf;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
-           style="font-size:32px;fill:#4d4d4d;fill-opacity:1"
+           style="font-size:32px;fill:#bfbfbf;fill-opacity:1"
            y="4.3174729"
            x="475.90161"
            id="tspan6156"
@@ -313,7 +331,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Layer3">
+     inkscape:label="Layer3"
+     sodipodi:insensitive="true">
     <path
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccsssssc"
