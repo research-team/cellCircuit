@@ -134,7 +134,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.166403"
      inkscape:cx="397.51318"
-     inkscape:cy="787.70047"
+     inkscape:cy="753.407"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -151,14 +151,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     sodipodi:insensitive="true">
     <rect
        style="fill:#a7b5ee;fill-opacity:1;stroke:#afafaf;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect2985"
@@ -217,7 +218,7 @@
          id="tspan6134"
          x="368.04752"
          y="254.76598"
-         style="fill:#4d4d4d;fill-opacity:1;font-size:47.99999977px">Neuron</tspan></text>
+         style="font-size:48px;fill:#4d4d4d;fill-opacity:1">Neuron</tspan></text>
     <text
        transform="matrix(0.96592583,0.25881905,-0.25881905,0.96592583,0,0)"
        sodipodi:linespacing="125%"
@@ -234,15 +235,15 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="549.40497"
-       y="62.268002"
+       x="555.79211"
+       y="46.355286"
        id="text6140"
        sodipodi:linespacing="125%"
        transform="matrix(0.96592583,0.25881905,-0.25881905,0.96592583,0,0)"><tspan
          sodipodi:role="line"
          id="tspan6142"
-         x="549.40497"
-         y="62.268002"
+         x="555.79211"
+         y="46.355286"
          style="font-size:32px;fill:#4d4d4d;fill-opacity:1">peel</tspan></text>
     <a
        id="a6148"
@@ -285,15 +286,39 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#DotL)"
-       d="m 555,97.362183 56.3033,13.696697"
+       d="m 555,97.362183 57.21264,13.393587"
        id="path6162"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#DotL)"
-       d="m 546,131.36218 50.61645,11.51557"
+       d="m 546,131.36218 52.43514,12.72803"
        id="path6164"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <text
+       transform="matrix(0.96592583,0.25881905,-0.25881905,0.96592583,0,0)"
+       sodipodi:linespacing="125%"
+       id="text3963"
+       y="129.17531"
+       x="539.23297"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a85757;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:32px;fill:#a85757;fill-opacity:1;stroke:none"
+         y="129.17531"
+         x="539.23297"
+         id="tspan3965"
+         sodipodi:role="line">spike</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer3">
+    <path
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccsssssc"
+       id="path2231"
+       d="m 522.60703,232.3958 16.97762,4.54914 c 0.81972,-1.31424 1.69234,-2.70081 2.57033,-4.09645 3.03616,-4.82628 6.13654,-9.76124 7.33576,-12.19037 8.98373,-18.19732 10.01034,-16.69102 6.17464,2.10128 -1.8517,9.07208 -2.21219,19.93038 -1.00171,24.3452 1.89527,6.91237 3.26569,9.46086 9.69998,3.70703 5.88939,-5.26655 7.50139,-5.13109 13.49512,-3.61117"
+       style="font-size:16px;fill:none;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Verdana" />
   </g>
 </svg>
