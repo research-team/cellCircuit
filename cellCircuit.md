@@ -13,7 +13,7 @@ the electronic to bio world on the cellular level.
 
 ###Bio-electronics
 
-![bio-electronics schema](model.png)
+![bio-electronics schema](bio-electronic.png)
 
 We propose the hundreds nano-meters device with three main parts:
 
