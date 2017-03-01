@@ -25,6 +25,7 @@ Sensor could be the FET nano-fiber where the gate is attached to a membrane and 
 ##Principal schema
 
 ![Bio-electronic principal schema](Transmitter.png)
+
 This schema is proposed as prototype for the macro device that could be used for sensing the electrical activity and transmitting the data in radio frequency. This device should provide only the feasibility study for the idea to implant the radio transmitter in a biological cell of a slime mold.
 
 ##Problems
