@@ -1,15 +1,15 @@
-#Radio transmitting Cell circuits
+# Radio transmitting Cell circuits
 
-##Background
+## Background
 
-Recently there were some interesting success in the field of biologically [powered circuits](http://www.nature.com/ncomms/2015/151207/ncomms10070/pdf/ncomms10070.pdf).
+There were some interesting success in the field of biologically [powered circuits](http://www.nature.com/ncomms/2015/151207/ncomms10070/pdf/ncomms10070.pdf).
 
 The team from Columbia University managed to power the CMOS circuit with the biological power
 of ATP. This should be mentioned that currently only macro model was developed.
 This could be estimated as the breaking through in creation of the interface from
 the electronic to bio world on the cellular level.
 
-##Bio-electronics
+## Bio-electronics
 
 ![bio-electronics schema](bio-electroinc.png)
 
@@ -22,13 +22,13 @@ We propose the hundreds nano-meters device with three main parts:
 
 Sensor could be the FET nano-fiber where the gate is attached to a membrane and is managing the electric current in Sensor signal amplifier. Whole device is been surrounded with phosphor-lipid layer that with the ATPhase could be the natural source of the energy collected and then transferred by Power amplifier. 
 
-##Principal schema
+## Principal schema
 
 ![Bio-electronic principal schema](Transmitter.png)
 
 This schema is proposed as prototype for the macro device that could be used for sensing the electrical activity and transmitting the data in radio frequency. This device should provide only the feasibility study for the idea to implant the radio transmitter in a biological cell of a slime mold.
 
-##Problems
+## Problems
 
 There could be identified several problems even on the stage of preliminary analysis:
 
@@ -36,7 +36,7 @@ There could be identified several problems even on the stage of preliminary anal
 1. There could be problem in minimization of the bio-electrical adapter to nano-sizes for the plants and vertebrate cells.
 
 
-##Practical use
+## Practical use
 
 We could identify several domains that could make use of this novel approach:
 
@@ -50,7 +50,7 @@ We could identify several domains that could make use of this novel approach:
 
 1. **Natural neural network or brain to computer interface** the cellular circuits could be connected in some complex device with option to communicate wireless that could be used as gateway to the brain providing the option of the "brain -- brain" interface, "brain -- cloud" interface or used to communicate with external robotic devices like prosthesis exoskeletons etc. This gateway device could be naturally grown in a brain.
 
-###Potentially interested companies
+### Potentially interested companies
 
 1. CPU companies
 1. Pharmaceutical companies
