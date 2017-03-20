@@ -8,4 +8,6 @@ There are 6 principal components of a radio transmitter to be implemented in a c
 
 |Sensor |Amplifier 1|Modulator |Oscillator |Amplifier 2|Antenna |
 |--     |--         |--        |--         |--         |--      |
-|GPCR   |Gprotein   |Protein semiconductor |Protein semiconductor |Ca+ |DNA |
+|GPCR   |G-protein   |Protein semiconductor |Protein semiconductor |Ca+ |DNA |
+| | | |NO| |
+| | | |Redox signaling | |
