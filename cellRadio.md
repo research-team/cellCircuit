@@ -11,3 +11,4 @@ There are 6 principal components of a radio transmitter to be implemented in a c
 |GPCR   |G-protein   |Protein semiconductor |Protein semiconductor |Ca+ |DNA |
 | | | | |NO| |
 | | | | |Redox signaling | |
+| | | | | |Ferritin |
