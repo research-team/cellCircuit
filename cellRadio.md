@@ -18,3 +18,11 @@ Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transductio
 ## The Naive implementation schema
 
 ![Naive implementation](HLD_naive_GPCR.png)
+
+The naive approach include: 
+
+1. GPCR triggers G-protein
+1. G-protein triggers a second messenger
+1. A second messenger activates coupled nuclear receptors R1 and later R2
+1. Receptors acts like modulator transmitting for example ions of Ca+ through a nuclear membrane with desired frequency of GHz, that matches resonance frequency of an DNA. 
+1. An oscillation produced by ions should trigger the electronic alternating current on DNA, and in its turn produce radio-waves.
