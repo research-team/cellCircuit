@@ -14,3 +14,7 @@ There are 6 principal components of a radio transmitter to be implemented in a c
 | | | | | |Ferritin |
 
 Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transduction), [second messengers](https://en.wikipedia.org/wiki/Second_messenger_system) we could propose the pathway we could possibly update to adopt the presented above schema. As the overall goal of the project is to make a cell to transmit significant information in radio frequency range. Currently we are headed to MHz range of radio transmission.
+
+## The Naive implementation schema
+
+![Naive implementation](HLD_naive_GPCR.png)
