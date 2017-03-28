@@ -12,6 +12,7 @@ There are 6 principal components of a radio transmitter to be implemented in a c
 | | | | |NO| |
 | | | | |Redox signaling | |
 | | | | | |Ferritin |
+|GPCR   |Ligand     |Ion pump |Ion pump | Ion pump| DNA|
 
 Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transduction), [second messengers](https://en.wikipedia.org/wiki/Second_messenger_system) we could propose the pathway we could possibly update to adopt the presented above schema. As the overall goal of the project is to make a cell to transmit significant information in radio frequency range. Currently we are headed to MHz range of radio transmission.
 
@@ -22,7 +23,8 @@ Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transductio
 The naive approach include: 
 
 1. GPCR triggers G-protein
-1. G-protein triggers a second messenger
-1. A second messenger activates coupled nuclear receptors R1 and later R2
-1. Receptors acts like modulator transmitting for example ions of Ca+ through a nuclear membrane with desired frequency of GHz, that matches resonance frequency of an DNA. 
+1. G-protein triggers the ligand
+1. The ligand activates transforming the blocker
+1. This way unblocks the ATP on the ion pump
+1. The ion pump acts like modulator transmitting for example ions through a nuclear membrane with desired frequency of MHz-GHz, that matches resonance frequency of an DNA. 
 1. An oscillation produced by ions should trigger the electronic alternating current on DNA, and in its turn produce radio-waves.
