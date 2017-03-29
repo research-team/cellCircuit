@@ -2,7 +2,7 @@
 
 ## Principal schema of the cellular radio transmitter
 
-![Principal schema of cell radio transmitter](HL_cell_radio_transmitter.png)
+![Principal schema of cell radio transmitter](HL_cell_radio_transmitter-0.1.png)
 
 There are 6 principal components of a radio transmitter to be implemented in a cell that are presented in the table below with the implementation option.
 
@@ -15,6 +15,15 @@ There are 6 principal components of a radio transmitter to be implemented in a c
 |GPCR   |Ligand     |Ion pump |Ion pump | Ion pump| DNA|
 
 Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transduction), [second messengers](https://en.wikipedia.org/wiki/Second_messenger_system) we could propose the pathway we could possibly update to adopt the presented above schema. As the overall goal of the project is to make a cell to transmit significant information in radio frequency range. Currently we are headed to MHz range of radio transmission.
+
+## Principal schema of synchronized cell radio transmitter
+
+![Principal schema of cell radio transmitter](HL_cell_radio_transmitter.png)
+
+
+|Sensor |Trigger |Blocker |Synchronizer|Modulator |Amplifier |Antenna |
+|--     |--      |--      |--          |--        |--        |--      |
+|GPCR   |Ligand  |???     |?Na+/K+     |Ion pump  |Synch. Ion pumps |DNA |
 
 ## The Naive implementation schema
 
