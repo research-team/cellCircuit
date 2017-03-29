@@ -23,7 +23,7 @@ Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transductio
 
 |Sensor |Trigger |Blocker |Synchronizer|Modulator |Amplifier |Antenna |
 |--     |--      |--      |--          |--        |--        |--      |
-|GPCR   |Ligand  |???     |?Na+/K+     |Ion pump  |Synch. Ion pumps |DNA |
+|GPCR   |Ligand  |???     |?Ions       |Ion pump  |Synch. Ion pumps |DNA |
 
 ## The Naive implementation schema
 
