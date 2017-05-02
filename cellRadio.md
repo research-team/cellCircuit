@@ -24,7 +24,7 @@ Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transductio
 N |Sensor |Trigger |Blocker |Synchronizer|Modulator |Amplifier |Antenna |
 --|--     |--      |--      |--          |--        |--        |--      |
 1.|GPCR   |Ligand  |???     |?Ions       |Ion pump  |Synch. Ion pumps |DNA |
-1.|GPCR   |Ligand  |        |cAMP       |Ion pump  |Adenylyl cyclase |DNA |
+2.|GPCR   |Ligand  |        |cAMP       |Ion pump  |Adenylyl cyclase |DNA |
 
 
 ## The Naive implementation schema
