@@ -21,9 +21,11 @@ Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transductio
 ![Principal schema of cell radio transmitter](HL_cell_radio_transmitter.png)
 
 
-|Sensor |Trigger |Blocker |Synchronizer|Modulator |Amplifier |Antenna |
-|--     |--      |--      |--          |--        |--        |--      |
-|GPCR   |Ligand  |???     |?Ions       |Ion pump  |Synch. Ion pumps |DNA |
+N |Sensor |Trigger |Blocker |Synchronizer|Modulator |Amplifier |Antenna |
+--|--     |--      |--      |--          |--        |--        |--      |
+1.|GPCR   |Ligand  |???     |?Ions       |Ion pump  |Synch. Ion pumps |DNA |
+1.|GPCR   |Ligand  |        |cAMP       |Ion pump  |Adenylyl cyclase |DNA |
+
 
 ## The Naive implementation schema
 
