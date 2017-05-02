@@ -23,11 +23,11 @@ Based on [trasduction pathways](https://en.wikipedia.org/wiki/Signal_transductio
 
 N |Sensor |Trigger |Blocker |Synchronizer|Modulator |Amplifier |Antenna |
 --|--     |--      |--      |--          |--        |--        |--      |
-1.|GPCR   |Ligand  |???     |?Ions       |Ion pump  |Synch. Ion pumps |DNA |
-2.|GPCR   |Ligand  |        |cAMP       |Ion pump  |Adenylyl cyclase |DNA |
+1.|GPCR   |Ligand  |?     |?Ions       |Ion pump  |Synch. Ion pumps |DNA |
+2.|GPCR   |Ligand  |        |cAMP       |?  | Adenylyl cyclase |DNA |
 
 
-## The Naive implementation schema
+## The Naive implementation of Ion pump option
 
 ![Naive implementation](HLD_naive_GPCR.png)
 
@@ -39,3 +39,22 @@ The naive approach include:
 1. This way unblocks the ATP on the ion pump
 1. The ion pump acts like modulator transmitting for example ions through a nuclear membrane with desired frequency of MHz-GHz, that matches resonance frequency of an DNA. 
 1. An oscillation produced by ions should trigger the electronic alternating current on DNA, and in its turn produce radio-waves.
+
+
+## The Naive implementation of Adenylyl cyclase
+
+...
+
+## The simplest way 
+
+
+The most strait-forward way seems to use ferritin containing iron to amplify the magnetic part of the electromagnetic field.
+
+### Bacteria
+
+We could put some number of bacteria in solution with ferritin with iron. Some time later bacteria encapsulates ferritin. In case of light sensitive bacteria we should notice the increase of magnetic noise on the frequency of iron ions of ferritin.
+
+### Rats
+
+Firstly we should update the genome of glia cells to increase the transcription of ferritin.
+Secondly we need to provide an animal with the food with iron for example an apple. 
