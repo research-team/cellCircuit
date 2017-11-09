@@ -1,13 +1,7 @@
-# cellCircuit
-The project dedicated to trasmitting bioelectronic circuits powered and runnable in eucariotic living cells. 
+# MRD processor
 
-http://www.nature.com/ncomms/2015/151207/ncomms10070/pdf/ncomms10070.pdf  
+The project dedicated to unconventional computing approach for memristive reaction-diffusion processor. 
 
 Project is managed via trello:
 
 https://trello.com/b/ftayBVQm/cellcircuit
-
-English description:
-https://github.com/research-team/cellCircuit/blob/master/cellCircuit.md
-
-[Russian description:](https://github.com/research-team/cellCircuit/blob/master/cellCircuit-ru.md)
