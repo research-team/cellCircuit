@@ -14,3 +14,5 @@ The complete description is available [here](https://github.com/research-team/me
 
 Reaction diffusion computers are interesting alternative for traditional silicon processing units and their use in robotics was indicated by Adamatzky ...
 
+![MRD processor high level architecture](MRD_modulator_synchroniser.png)
+
