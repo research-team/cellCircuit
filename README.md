@@ -4,7 +4,8 @@ The project dedicated to unconventional computing approach for memristive reacti
 
 The description of the memristive reaction diffusion processor
 
-MRD_modul
+https://github.com/research-team/cellCircuit/blob/master/MRD_processor.md
+
 Project is managed via trello:
 
 https://trello.com/b/ftayBVQm/cellcircuit
