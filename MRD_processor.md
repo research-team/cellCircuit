@@ -8,4 +8,9 @@ Single neuron schematic is presented below:
 
 ![Memristive inhibitory and modulatory schematic](https://raw.githubusercontent.com/research-team/memristive-brain/master/doc/HL_mod_inh_mem_neuron.png)
 
+The complete description is available [here](https://github.com/research-team/memristive-brain/blob/master/doc/memristive-brain_technical_roadmap.md#neuron).
+
+# Memristive reaction diffusion neuromodulation
+
+
 
