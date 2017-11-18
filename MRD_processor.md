@@ -12,9 +12,9 @@ The complete description is available [here](https://github.com/research-team/me
 
 # Memristive reaction diffusion neuromodulation
 
-Reaction diffusion computers are interesting alternative for traditional silicon processing units and their use in robotics was indicated by [Adamatzky 2005]
+Reaction diffusion computers are interesting alternative for traditional silicon processing units and their use in robotics was indicated by [1]
 
 ![MRD processor high level architecture](MRD_modulator_synchroniser.png)
 
 
-[Adamatzky 2005]: Adamatzky, A., Costello, B. D. L., & Asai, T. (2005). Reaction-diffusion computers. Elsevier.
+[1]: Adamatzky, A., Costello, B. D. L., & Asai, T. (2005). Reaction-diffusion computers. Elsevier.
