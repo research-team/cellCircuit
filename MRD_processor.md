@@ -16,7 +16,7 @@ Reaction diffusion computers are interesting alternative for traditional silicon
 
 ![MRD processor high level architecture](MRD_modulator_synchroniser.png)
 
-Overall schematic is inspired by [nigrostriatal pathway of the dopamine subsystem of the mammalian brain](https://en.wikipedia.org/wiki/Basal_ganglia#/media/File:Basal-ganglia-classic.png). 
+Overall schematic is inspired by [nigrostriatal pathway of the dopamine subsystem of the mammalian brain](https://en.wikipedia.org/wiki/Basal_ganglia#Circuit_connections). 
 
 <b id="Adamatzky_2005">(Adamatzky 2005)</b> Adamatzky, A., Costello, B. D. L., & Asai, T. (2005). Reaction-diffusion computers. Elsevier. [↩](#a1)
 
