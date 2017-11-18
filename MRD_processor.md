@@ -17,6 +17,7 @@ Reaction diffusion computers are interesting alternative for traditional silicon
 ![MRD processor high level architecture](MRD_modulator_synchroniser.png)
 
 Overall schematic is inspired by [nigrostriatal pathway of the dopamine subsystem of the mammalian brain](https://en.wikipedia.org/wiki/Basal_ganglia#Circuit_connections). 
+The modulating subsystem is inspired by dopamine modulation of striatum via D1, D2 receptors. DA nucleus (SNc - [substancia nigra compacta](https://en.wikipedia.org/wiki/Substantia_nigra)) triggers the [Belousov–Zhabotinsky (BZ) reaction](https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction) via laser and controls it via electromagnetic field [Adamatzky 2005]. The waves of the BZ reaction spreads through the reactor that contains the matrix of PANI devices [Fontana 2011]. The wave front of the maximum pH modulates increasing the conductivity of a PANI memristive devices.  
 
 <b id="Adamatzky_2005">(Adamatzky 2005)</b> Adamatzky, A., Costello, B. D. L., & Asai, T. (2005). Reaction-diffusion computers. Elsevier. [↩](#a1)
 
