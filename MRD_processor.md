@@ -12,10 +12,11 @@ The complete description is available [here](https://github.com/research-team/me
 
 # Memristive reaction diffusion neuromodulation
 
-Reaction diffusion computers are interesting alternative for traditional silicon processing units and their use in robotics was indicated by <span id="#a1">[Adamatzky 2005](#Adamatzky_2005)</span> and <span id="#a2">[Fontana 2011](#Fontana_2011)</span> 
+Reaction diffusion computers are interesting alternative for traditional silicon processing units and their use in robotics was indicated by <span id="#a1">[Adamatzky 2005](#Adamatzky_2005)</span> and <span id="#a2">[Fontana 2011](#Fontana_2011)</span>.
 
 ![MRD processor high level architecture](MRD_modulator_synchroniser.png)
 
+Overall schematic is inspired by [nigrostriatal pathway of the dopamine subsystem of the mammalian brain](https://en.wikipedia.org/wiki/Basal_ganglia#/media/File:Basal-ganglia-classic.png). 
 
 <b id="Adamatzky_2005">(Adamatzky 2005)</b> Adamatzky, A., Costello, B. D. L., & Asai, T. (2005). Reaction-diffusion computers. Elsevier. [↩](#a1)
 
