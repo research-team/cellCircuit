@@ -21,22 +21,20 @@ The modulating subsystem is inspired by dopamine modulation of striatum via D1, 
 
 The MRD synchroniser is inspired via synchronisation mechanisms of a mammalian brain. The BZ reaction is triggered via laser and its speed thus frequency of the synchronisation is controlled via electric field where the maximum pH wave front increases the activity of the inhibitory neurons that projects their activity over thalamo-cortical loop. The synchronisation of the memristive brain parts initiates the temporal spatial patterns of pseudo-neuronal activity that build associations of for example: stimuli with actions with reward modulated by DA nucleus.
 
-## Technology
+## Approach
 
-В принципе - непосредственно полианилин меняет проводимость в зависимости
-от рН. Таким образом, на поверхности диэлектрической подложки мы можем
-нанести систему металических (золото или платина) электродов, которые
-покроем полианилином. Распространение волн при прохождении БЖ реакции
-будет периодически менять проводимость между парами электродов. Однако,
-видимо это не совсем то, что нам нужно. Присутствие мемристоров, как я
-понимаю, должно обеспечить перестраиваемость и обучаемость системы.
-Видимо, надо рассмотреть комплексную систему, состоящую из двух матриц: на
-первой происходит БЖ реакция, меняющая периодически проводимость участков
-планарной матрицы. Сигналы с этих электродов подаются на другую матрицу,
-состоящую уже из мемристоров. Таким образом, первая матрица будет отвечать
-за изменения электрических характеристик в зависимости от сиюминутного
-состояния системы, а вторая будет принимать во внимание опыт, накопленный
-в результате предыдущего функционирования.
+The pH of the environment influences the  polyaniline compound conductivity. Thus we could use a dielectric substrate with a matrix of electrodes (gold, platinum) and cover them with polyaniline. The BZ reaction waves changes the conductivity of polyaniline layer between the pair of electrodes. A second memristors layer should provide an adaptability, self-organization and self-learning of a system. This way we should take in account a two matrix layers system: the first one is influenced by BZ reaction (or BZ reactor) that changes periodically a conductivity of segments of a planar matrix, signals of this matrix are transmitted to a second memristors matrix. Thus first BZ reactor matrix is responsible for changes of electrical properties based on momentary state of a BZ reactor, while second one would take in account a previous memristors experience. 
+
+We could create the first BZ reactor matrix cells of 10 microns, possibly 1 micrometer, it is possible 50 nanometers.
+
+In Russian:
+
+В принципе - непосредственно полианилин меняет проводимость в зависимости от рН. Таким образом, на поверхности диэлектрической подложки мы можем  нанести систему металических (золото или платина) электродов, которые покроем полианилином. 
+
+Распространение волн при прохождении БЖ реакции будет периодически менять проводимость между парами электродов. Однако, видимо это не совсем то, что нам нужно. 
+
+Присутствие мемристоров, как я понимаю, должно обеспечить перестраиваемость и обучаемость системы. Видимо, надо рассмотреть комплексную систему, состоящую из двух матриц: на первой происходит БЖ реакция, меняющая периодически проводимость участков планарной матрицы. Сигналы с этих электродов подаются на другую матрицу,
+состоящую уже из мемристоров. Таким образом, первая матрица будет отвечать за изменения электрических характеристик в зависимости от сиюминутного состояния системы, а вторая будет принимать во внимание опыт, накопленный в результате предыдущего функционирования.
 
 Размеры ячеек матрицы с БЖ ренакцией легко могут быть сделаны порядка 10
 микрон. Сложнее - 1 микрон. В принципе возможно, но мы не сделаем - около
