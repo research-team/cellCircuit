@@ -1,6 +1,7 @@
 PImage img;  // Declare a variable of type PImage
 
 //https://processing.org/reference/loadPixels_.html
+//https://processing.org/tutorials/pixels/
 
 void setup() {
   size(776,465);
