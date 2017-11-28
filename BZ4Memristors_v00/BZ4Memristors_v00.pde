@@ -38,7 +38,7 @@ float distance_divider=4635.; // 3100 is good when REVERSE=0; for REVERSE=1 we u
 float activity=0, newactivity=0;
 
 PImage b;
-String name="disc.png"; //"disc_150.png";
+String name="black.png"; //"disc_150.png";
 int ProcessImage=1;
 
 int CENTRE=400;
@@ -230,6 +230,48 @@ void perturb(int pci, int pcj)
   {
     u[j][cj]=1.0;
     u[j][cj+1]=1.0;
+  }
+
+
+
+  // also generate opposite particle
+
+  //ci=ni-15; cj=nj/2+offset;
+  //for(j=cj-10;j<=cj+10;j++)
+  //  u[ci][j]=1.0;
+
+
+  // generate big particle
+
+  //  ci=ni-25; cj=nj/2+offset;
+  // for(j=cj-5;j<=cj+5;j++)
+  //   {u[ci][j]=1.0;ci++;}
+}
+
+
+void perturb1(int pci, int pcj)
+{
+  int ci, cj;
+
+  ci=pci;
+  cj=pcj;
+
+
+
+  ci=pci; 
+  cj=pcj;
+  for (j=ci-10; j<=ci+10; j++)
+  {
+    u[j][cj]=1.0;
+    u[j][cj+1]=1.0;
+  }
+  
+  ci=pci+1; 
+  cj=pcj+1;
+  for (j=ci-10; j<=ci+10; j++)
+  {
+    v[j][cj]=1.0;
+    v[j][cj+1]=1.0;
   }
 
 
@@ -510,11 +552,13 @@ void mousePressed()
     //   stroke(255,0,0);
     // point(mouseX,mouseY);
 
-    ssi=mouseX; 
-    ssj=mouseY;  
-    cc=get(ssi, ssj);
-    println(red(cc)+","+green(cc)+","+blue(cc)+","+ssi+","+ssj);   
+    //ssi=mouseX; 
+    //ssj=mouseY;  
+    //cc=get(ssi, ssj);
+    //println(red(cc)+","+green(cc)+","+blue(cc)+","+ssi+","+ssj);   
     //  u[ssi][ssj]=1.0;
+    
+    perturb1(mouseX, mouseY);
   } 
 
   if (mousePressed&&(mouseButton == RIGHT))
