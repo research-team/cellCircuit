@@ -39,17 +39,6 @@ void tests() {
 
 }
 
-void tests_R_pH(float[] R_pH_vec) {
-  // tests 
-  println (" 3 R_pH ", R_pH(3, R_pH_vec));
-  println (" 4 R_pH ", R_pH(4, R_pH_vec));
-  println (" 5 R_pH ", R_pH(5, R_pH_vec));
-  println (" 6 R_pH ", R_pH(6, R_pH_vec));
-  println (" 7 R_pH ", R_pH(7, R_pH_vec));
-  println (" 8 R_pH ", R_pH(8, R_pH_vec));
-  println (" 8.5 R_pH ", R_pH(8.5, R_pH_vec));
-}
-
 void load_R_ph_image(){
   image(img,0,0);
   loadPixels();
@@ -73,7 +62,12 @@ void write_image_to_file(){
   out.flush(); // Writes the remaining data to the file
   out.close(); // Finishes the file
 }
-
+/**
+Parses the CSV file of specified length in the float[] vector.
+@file_name the name of the file
+@number_of_values the number of values in the row
+@returns the vector of floats
+*/
 float[] parseFile(String file_name, int number_of_values) {
   // Open the file from the createWriter() example
   BufferedReader reader = createReader(file_name);
@@ -91,12 +85,31 @@ float[] parseFile(String file_name, int number_of_values) {
   return nums;
 } 
 
+/**
+Returns the resistance based no specified pH with specified array of resistances.
+@pH the velue of pH
+@R_pH_vec the vector of pH values  
+@returns the float of R
+*/
 float R_pH(float pH, float[] R_pH_vec) {
   float res = 0.0;
   int index = int((pH - ph_min) * x_max/ (ph_max - ph_min));
-  println("pH ", pH ,"index ", index, " length ", R_pH_vec.length);
+  // println("pH ", pH ,"index ", index, " length ", R_pH_vec.length);
   res = R_pH_vec[index];
   return res;
+}
+/**
+Tests the R_pH function
+*/
+void tests_R_pH(float[] R_pH_vec) {
+  // tests 
+  println (" 3 R_pH ", R_pH(3, R_pH_vec));
+  println (" 4 R_pH ", R_pH(4, R_pH_vec));
+  println (" 5 R_pH ", R_pH(5, R_pH_vec));
+  println (" 6 R_pH ", R_pH(6, R_pH_vec));
+  println (" 7 R_pH ", R_pH(7, R_pH_vec));
+  println (" 8 R_pH ", R_pH(8, R_pH_vec));
+  println (" 8.5 R_pH ", R_pH(8.5, R_pH_vec));
 }
 
 void setup() {
