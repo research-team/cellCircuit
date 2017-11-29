@@ -1,6 +1,6 @@
 PImage img;  // Declare a variable of type PImage
 
-color black = color(0, 0, 0);
+color black = color(46, 46, 46);
 int r_min = 20;
 int r_max = 120;
 int ph_min = 2;
