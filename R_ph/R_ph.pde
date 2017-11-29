@@ -16,7 +16,7 @@ void setup() {
   size(610,281);
   // Make a new instance of a PImage by loading an image file
   img = loadImage("R_pH_trunk.png");
-  out = createWriter("R_pH.csv");   
+  // out = createWriter("R_pH.csv");   
 }
 
 double height2R(int h){
@@ -25,21 +25,7 @@ double height2R(int h){
   return res;
 }
 
-void draw() {
-  background(0);
-  // Draw the image to the screen at coordinate (0,0)
-  image(img,0,0);
-  loadPixels();
-  for (int j = 0; j < height; j++) {
-    for (int i = 0; i < width; i++) {
-      // println (i, " ; " ,j, "is " , pixels[i + j*width]);
-      if (pixels[i + j*width] == black){
-        //println (i, " ; " ,j, "is ", pixels[i + j*width]);
-        dots[i] = height2R(j);
-      }
-    }
-  }
-
+void tests() {
   // tests 
   int x = 0;
   x = (3 - ph_min) * 610/ (ph_max - ph_min);
@@ -56,12 +42,36 @@ void draw() {
   println (x, " 8 dots ", dots[x]);
   x = (9 - ph_min) * 610/ (ph_max - ph_min);
   println (x, "", 9 ," dots ", dots[x]);
+
+}
+
+void load_R_ph(){
+  image(img,0,0);
+  loadPixels();
+  for (int j = 0; j < height; j++) {
+    for (int i = 0; i < width; i++) {
+      // println (i, " ; " ,j, "is " , pixels[i + j*width]);
+      if (pixels[i + j*width] == black){
+        //println (i, " ; " ,j, "is ", pixels[i + j*width]);
+        dots[i] = height2R(j);
+      }
+    }
+  }
+}
+
+void draw() {
+  background(0);
+  // Draw the image to the screen at coordinate (0,0)
+
+  //load_R_ph();
+  //tests();
  
   // writing the file
-  for (int ii =0; ii < 610; ii ++){
+  /* for (int ii =0; ii < 610; ii ++){
     if (ii > 0){ out.print(","); }
     out.print(dots[ii]);
   }
   out.flush(); // Writes the remaining data to the file
   out.close(); // Finishes the file
+  */
 }
