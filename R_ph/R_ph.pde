@@ -7,6 +7,7 @@ int ph_min = 2;
 int ph_max = 10;
 int y_max = 610;
 double[] dots = new double[y_max];
+PrintWriter out;
 
 //https://processing.org/reference/loadPixels_.html
 //https://processing.org/tutorials/pixels/
@@ -15,7 +16,7 @@ void setup() {
   size(610,281);
   // Make a new instance of a PImage by loading an image file
   img = loadImage("R_pH_trunk.png");
-  
+  out = createWriter("R_pH.csv");   
 }
 
 double height2R(int h){
@@ -55,8 +56,12 @@ void draw() {
   println (x, " 8 dots ", dots[x]);
   x = (9 - ph_min) * 610/ (ph_max - ph_min);
   println (x, "", 9 ," dots ", dots[x]);
-  
-  /*for (int ii =0; ii < 610; ii ++){
-    println("dots[", ii ,"]", dots[ii]);
-  }*/
+ 
+  // writing the file
+  for (int ii =0; ii < 610; ii ++){
+    if (ii > 0){ out.print(","); }
+    out.print(dots[ii]);
+  }
+  out.flush(); // Writes the remaining data to the file
+  out.close(); // Finishes the file
 }
