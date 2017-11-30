@@ -91,24 +91,46 @@ Returns the resistance based no specified pH with specified array of resistances
 @R_pH_vec the vector of pH values  
 @returns the float of R
 */
-float R_pH(float pH, float[] R_pH_vec) {
+float R_pH(float pH, float[] R_pH_vec) throws IllegalArgumentException {
+  float min = 2.5;
+  float max = 10.0;
   float res = 0.0;
-  int index = int((pH - ph_min) * x_max/ (ph_max - ph_min));
-  // println("pH ", pH ,"index ", index, " length ", R_pH_vec.length);
-  res = R_pH_vec[index];
+  
+  if (pH < min) {
+    throw new IllegalArgumentException ("The inbound pH is lower than allowed minimum " + min);
+  }
+  if (pH > max) {
+    throw new IllegalArgumentException ("The inbound pH is greater than allowed maximum "+ max);
+  }
+  
+  int index_i = int((pH - ph_min) * x_max/ (ph_max - ph_min));
+  float index_f = (pH - ph_min) * x_max/ (ph_max - ph_min);
+  if (index_i != index_f && index_i < R_pH_vec.length) {
+    float left = R_pH_vec[index_i];
+    float right = R_pH_vec[index_i+1];
+    float delta = index_f - index_i;
+    res = delta * (right - left) + left;
+    // println ("i= ", index_i, " f= ", index_f , " left= ", left, " right= ", right , " res= " , res);
+  } else {
+    // println("pH ", pH ,"index ", index, " length ", R_pH_vec.length);
+    res = R_pH_vec[index_i];
+  }
   return res;
 }
 /**
 Tests the R_pH function
 */
-void tests_R_pH(float[] R_pH_vec) {
+void tests_R_pH(float[] R_pH_vec) throws Exception {
   // tests 
   println (" 3 R_pH ", R_pH(3, R_pH_vec));
+  println (" 3.233 R_pH ", R_pH(3.233, R_pH_vec));
   println (" 4 R_pH ", R_pH(4, R_pH_vec));
+  println (" 4.25 R_pH ", R_pH(4.25, R_pH_vec));
   println (" 5 R_pH ", R_pH(5, R_pH_vec));
   println (" 6 R_pH ", R_pH(6, R_pH_vec));
   println (" 7 R_pH ", R_pH(7, R_pH_vec));
   println (" 8 R_pH ", R_pH(8, R_pH_vec));
+  println (" 8.3 R_pH ", R_pH(8.3, R_pH_vec));
   println (" 8.5 R_pH ", R_pH(8.5, R_pH_vec));
 }
 
@@ -127,5 +149,10 @@ void draw() {
   //write_image_to_file();
  
   float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
-  tests_R_pH(R_pH_vec);
+  try {
+    tests_R_pH(R_pH_vec);
+  } catch (Exception e) {
+    println (e);
+  }
+  
 }
