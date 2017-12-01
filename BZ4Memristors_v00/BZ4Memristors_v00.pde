@@ -467,6 +467,9 @@ void Modulate()
   activity=newactivity;
 }
 
+/**
+Recalculates u - actuator and v - inhibitor. 
+*/
 void rewrite_and_concave()
 {
   newactivity=0;
@@ -483,8 +486,23 @@ void rewrite_and_concave()
   // println(activity);
   //  for(i=0;i<=ni+1;i++) {u[i][0]=u[i][nj];v[i][0]=v[i][nj];u[i][nj+1]=u[i][1];v[i][nj+1]=v[i][1];}
   //  for(j=0;j<=nj+1;j++) {u[0][j]=u[ni][j];v[0][j]=v[ni][j];u[ni+1][j]=u[1][j];v[ni+1][j]=v[1][j];}
+  
 }
 
+/**
+Calculates pH based on u (activation).
+@param u - the float BZ activation parameter
+
+*/
+float pH(float u) {
+  float res = 8 + 2*u;
+  return res;
+}
+
+
+/**
+Drawing BZ reaction on the screen.
+*/
 void drawbz()
 {
   background(b); 
@@ -512,6 +530,10 @@ void drawbz()
           //if ((redcol<=40)&&(bluecol<=100)) {redcol=255;greencol=255;bluecol=255;}
           stroke(redcol, greencol, bluecol);
           point(i, j);
+          println ("Debug: u = ", u[i][j]);
+          println ("Debug: pH = ", pH(u[i][j]));
+          float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
+          println ("Debug: R = ", R_pH(pH(u[i][j]), R_pH_vec));
         }
       } else 
       {
@@ -837,7 +859,7 @@ void draw()
     if (tt%10==0) SaveLapse(tt);
 
     //outputEpsilon.println(epsilon);
-    // outputActivity.println(activity);
+    //outputActivity.println(activity);
 
     // if (SaveVideo==1) mm.addFrame(); 
     if (tt%TimeLapse==0) SaveLapse();
