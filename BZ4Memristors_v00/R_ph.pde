@@ -5,7 +5,7 @@ int r_min = 20;
 int r_max = 120;
 int ph_min = 2;
 int ph_max = 10;
-int x_max = 610;
+int x_max = 609;
 double[] dots = new double[x_max];
 PrintWriter out;
 String R_pH_file_name = "R_pH.csv";
@@ -92,7 +92,7 @@ Returns the resistance based no specified pH with specified array of resistances
 @returns the float of R
 */
 float R_pH(float pH, float[] R_pH_vec) throws IllegalArgumentException {
-  float min = 2.5;
+  float min = 2.0;
   float max = 10.0;
   float res = 0.0;
   

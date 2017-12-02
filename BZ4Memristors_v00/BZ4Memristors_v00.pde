@@ -530,10 +530,8 @@ void drawbz()
           //if ((redcol<=40)&&(bluecol<=100)) {redcol=255;greencol=255;bluecol=255;}
           stroke(redcol, greencol, bluecol);
           point(i, j);
-          println ("Debug: u = ", u[i][j]);
-          println ("Debug: pH = ", pH(u[i][j]));
           float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
-          println ("Debug: R = ", R_pH(pH(u[i][j]), R_pH_vec));
+          println ("Debug: [", i ,";", j, "] u= ", u[i][j], " pH= ", pH(u[i][j]) ," R= ", R_pH(pH(u[i][j]), R_pH_vec));
         }
       } else 
       {
