@@ -44,6 +44,8 @@ int ProcessImage=1;
 int CENTRE=400;
 int ni=300;
 int nj=300;
+int reactor_height = 300;
+int reactor_width = 300;
 int nmax=1000;
 int simulation_tim=35000; 
 int update_time=100;
@@ -99,7 +101,7 @@ void setup()
   outputActivity = createWriter("activity.txt");
 
 
-  size(300, 300); 
+  size(300, 600); 
   colorMode(RGB, 255);
   //  x = new int[n+4][n+4]; 
   //  pixRGB = new byte[3];
@@ -505,7 +507,8 @@ Drawing BZ reaction on the screen.
 */
 void drawbz()
 {
-  background(b); 
+  //background(b); 
+  background(0);
   // image(b,0,0);
   for (i=1; i<=ni; i++)
     for (j=1; j<=nj; j++)
