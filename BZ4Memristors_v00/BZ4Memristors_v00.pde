@@ -2,8 +2,6 @@
 
 //MovieMaker mm;  // Declare MovieMaker object
 
-
-
 PrintWriter outputEpsilon, outputActivity;
 
 float 
@@ -21,8 +19,6 @@ float
 boolean MODULATE=false;
 
 float FixedActivity=0;
-
-
 
 int SaveVideo=0;
 int TimeLapse=150;
@@ -64,7 +60,6 @@ float A[][];  // =0.0011109;
 float uMax[][];
 float AA=0.0011109;
 
-
 int s=3;
 float dt=0.005; // dt=0.001 is original very good time step to dx=0.25
 float dx=0.25;
@@ -84,9 +79,6 @@ float averageu=0;
 int redcol, bluecol, greencol;
 float Reaction;
 
-
-
-
 int i, j, z, sum, sumx, sumy, count;
 float sign;
 int ci, cj;
@@ -100,7 +92,6 @@ void setup()
   outputEpsilon = createWriter("epsilon.txt"); 
   outputActivity = createWriter("activity.txt");
 
-
   size(300, 600); 
   colorMode(RGB, 255);
   //  x = new int[n+4][n+4]; 
@@ -109,11 +100,10 @@ void setup()
   //  smooth();
 
   b = loadImage(name);
-
   if (SaveVideo==1) {
     // mm = new MovieMaker(this, width, height, "BZG"+str(hour())+str(minute())+str(second())+".mov",
-    //                   90, MovieMaker.H263, MovieMaker.HIGH);
-  }  
+    // 90, MovieMaker.H263, MovieMaker.HIGH);
+  }
 
   v=new float[ni+100][nj+100];
   vnew=new float[ni+100][nj+100];
@@ -128,8 +118,6 @@ void setup()
   ai=new int[num_flakes+1];
   aj=new int[num_flakes+1];
   Flake = new int[num_flakes+1];
-
-
 
   frameRate(35);
   stroke(255); 
@@ -158,17 +146,9 @@ void setup()
       vnew[i][j]=q*(f+1)/(f-1);
     } 
 
-
-
-
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
   perturb(120, 10); // p3
-
-
-
-
-
 
   image(b, 0, 0);
 }
@@ -259,23 +239,25 @@ void perturb1(int pci, int pcj)
   cj=pcj;
 
 
+  if (pci < reactor_width && pcj < reactor_height){
+    ci=pci; 
+    cj=pcj;
+    for (j=ci-10; j<=ci+10; j++)
+    {
+      u[j][cj]=1.0;
+      u[j][cj+1]=1.0;
+    }
+    
+    ci=pci+1; 
+    cj=pcj+1;
+    for (j=ci-10; j<=ci+10; j++)
+    {
+      v[j][cj]=1.0;
+      v[j][cj+1]=1.0;
+    }
 
-  ci=pci; 
-  cj=pcj;
-  for (j=ci-10; j<=ci+10; j++)
-  {
-    u[j][cj]=1.0;
-    u[j][cj+1]=1.0;
   }
   
-  ci=pci+1; 
-  cj=pcj+1;
-  for (j=ci-10; j<=ci+10; j++)
-  {
-    v[j][cj]=1.0;
-    v[j][cj+1]=1.0;
-  }
-
 
 
   // also generate opposite particle
@@ -343,7 +325,6 @@ void map()
       {
 
         Epsilon=epsilon;
-
 
         //if (LowExc(140, 160, i, j, 30)) Epsilon=0.026; 
 
@@ -509,6 +490,8 @@ void drawbz()
 {
   //background(b); 
   background(0);
+  stroke(204, 102, 0);
+  line(0,300,300,300);
   // image(b,0,0);
   for (i=1; i<=ni; i++)
     for (j=1; j<=nj; j++)
