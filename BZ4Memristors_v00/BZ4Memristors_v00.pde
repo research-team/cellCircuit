@@ -201,18 +201,17 @@ void perturb(int pci, int pcj)
 {
   int ci, cj;
 
-  ci=pci;
-  cj=pcj;
-
-
-
-  ci=pci; 
-  cj=pcj;
-  for (j=ci-10; j<=ci+10; j++)
-  {
-    u[j][cj]=1.0;
-    u[j][cj+1]=1.0;
-  }
+  if (pci < reactor_width && pcj < reactor_height){
+    ci=pci;
+    cj=pcj;
+  
+    ci=pci; 
+    cj=pcj;
+    for (j=ci-10; j<=ci+10; j++)
+    {
+      u[j][cj]=1.0;
+      u[j][cj+1]=1.0;
+    }
 
 
 
@@ -228,6 +227,7 @@ void perturb(int pci, int pcj)
   //  ci=ni-25; cj=nj/2+offset;
   // for(j=cj-5;j<=cj+5;j++)
   //   {u[ci][j]=1.0;ci++;}
+  }
 }
 
 
@@ -490,13 +490,12 @@ void drawbz()
 {
   //background(b); 
   background(0);
-  stroke(204, 102, 0);
+  stroke(102, 204, 102);
   line(0,300,300,300);
   // image(b,0,0);
   for (i=1; i<=ni; i++)
     for (j=1; j<=nj; j++)
     {
-
       if (SaveVideo==0)
       { 
         if ((u[i][j]>0.1)||(v[i][j]>0.1))  // 0.1 threshold are good values for both u and v
