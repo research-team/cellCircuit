@@ -516,8 +516,12 @@ void drawbz()
           stroke(redcol, greencol, bluecol);
           point(i, j);
           float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
-          println ("Debug: [", i ,";", j, "] u= ", u[i][j], " pH= ", pH(u[i][j]) ," R= ", R_pH(pH(u[i][j]), R_pH_vec));
-        }
+          float r = R_pH(pH(u[i][j]), R_pH_vec);
+          println ("Debug: [", i ,";", j, "] u= ", u[i][j], " pH= ", pH(u[i][j]) ," R= ", r);
+          redcol = ceil(r/(r_max - r_min)*255);
+          stroke(redcol, greencol, 0);
+          point(i, j+300);
+      }
       } else 
       {
         redcol=ceil(u[i][j]*255.); 
