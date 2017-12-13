@@ -11,11 +11,10 @@ float T_previous = 0.0;
 /**
 Calculate I depending on memorized R depending on time of current exposure. 
 @param t the time of electrical current in the pulse
-@param t0 the time that memeristive device was already under exposure of an electrical current
-@param is_learning the current 
+@param is_learning the current in the direction of learning
 @return the value of I
 */
-float i_t(float t, float t0, boolean is_learning){
+float i_t(float t, boolean is_learning){
   float res = 0.0;
   float I0 = 0.0;
   float A = 0.0;
@@ -32,17 +31,27 @@ float i_t(float t, float t0, boolean is_learning){
     tau = t_red;
   }
   
-  res = I0 + A * exp((t+t0)/tau);
+  res = I0 + A * exp((t)/tau);
   return res;
 }
 
-/**
+// electronic pulse parameters
 
+float v_min = 0.4;
+float v_max = 0.8;
+
+/**
+Calculate the R using the time parameter starting from simulation and pulses setup.
+@param t - the current time of a simulation
+@param period - a pulse period (currently not used)
+@param duty - a duty ratio of pulses in percents
+@param is_learning the current in the direction of learning
+@returns the resintance value
 */
-float R_i(float t, float period, float duty){
+float R_i(float t, float period, float duty, boolean is_learning){
   float res = 0.0;
   
-  
-  
+  float t_exposure = t * duty / 100;
+  res= (v_max-v_min) / i_t(t_exposure, is_learning);
   return res;
 }
