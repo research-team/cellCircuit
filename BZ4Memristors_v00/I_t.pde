@@ -35,3 +35,14 @@ float i_t(float t, float t0, boolean is_learning){
   res = I0 + A * exp((t+t0)/tau);
   return res;
 }
+
+/**
+
+*/
+float R_i(float t, float period, float duty){
+  float res = 0.0;
+  
+  
+  
+  return res;
+}
