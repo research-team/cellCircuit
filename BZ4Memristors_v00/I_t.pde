@@ -11,9 +11,11 @@ float T_previous = 0.0;
 /**
 Calculate I depending on memorized R depending on time of current exposure. 
 @param t the time of electrical current in the pulse
+@param t0 the time that memeristive device was already under exposure of an electrical current
+@param i_current the current 
 @return the value of I
 */
-float i_t(float t, float i_current){
+float i_t(float t, float t0, float i_current){
   float res = 0.0;
   float I0 = 0.0;
   float A = 0.0;
@@ -30,6 +32,6 @@ float i_t(float t, float i_current){
     tau = t_red;
   }
   
-  res = I0 + A * exp(t/tau);
+  res = I0 + A * exp((t+t0)/tau);
   return res;
 }
