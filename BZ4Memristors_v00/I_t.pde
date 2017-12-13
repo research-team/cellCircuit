@@ -12,15 +12,15 @@ float T_previous = 0.0;
 Calculate I depending on memorized R depending on time of current exposure. 
 @param t the time of electrical current in the pulse
 @param t0 the time that memeristive device was already under exposure of an electrical current
-@param i_current the current 
+@param is_learning the current 
 @return the value of I
 */
-float i_t(float t, float t0, float i_current){
+float i_t(float t, float t0, boolean is_learning){
   float res = 0.0;
   float I0 = 0.0;
   float A = 0.0;
   float tau = 0.0;
-  if (i_current >0) {
+  if (is_learning) {
     //oxidation
     I0  = I0_ox;
     A = A_ox;
