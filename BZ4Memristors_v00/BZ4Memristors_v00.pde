@@ -89,7 +89,7 @@ float maxu, maxv, minu, minv;
 void setup() 
 { 
 
-  outputEpsilon = createWriter("epsilon.txt"); 
+  outputEpsilon = createWriter("epsilon.txt");  //<>//
   outputActivity = createWriter("activity.txt");
 
   size(300, 600); 
@@ -148,7 +148,7 @@ void setup()
 
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
-  perturb(120, 10); // p3
+  perturb(120, 10); // p3 //<>//
 
   image(b, 0, 0);
 }
@@ -840,7 +840,7 @@ void draw()
   {
 
     tt++;
-
+    t=tt;
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();
