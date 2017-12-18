@@ -5,7 +5,7 @@ float t_ox = -342.0;
 // for the reduction
 float I0_red = -11.7E-9; 
 float A_red = -41.0E-7;
-float t_red = -45;
+float t_red = -45.0;
 
 float T_previous = 0.0;
 /**
