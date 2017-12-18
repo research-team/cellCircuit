@@ -89,7 +89,7 @@ float maxu, maxv, minu, minv;
 void setup() 
 { 
 
-  outputEpsilon = createWriter("epsilon.txt"); 
+  outputEpsilon = createWriter("epsilon.txt");  //<>//
   outputActivity = createWriter("activity.txt");
 
   size(300, 600); 
@@ -148,7 +148,7 @@ void setup()
 
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
-  perturb(120, 10); // p3
+  perturb(120, 10); // p3 //<>//
 
   image(b, 0, 0);
 }
@@ -516,9 +516,9 @@ void drawbz()
           stroke(redcol, greencol, bluecol);
           point(i, j);
           float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
-          float r = R_pH(pH(u[i][j]), R_pH_vec);
-          println ("Debug: [", i ,";", j, "] u= ", u[i][j], " pH= ", pH(u[i][j]) ," R= ", r);
-          redcol = ceil(r/(r_max - r_min)*255);
+          float r_pani = R_pH(pH(u[i][j]), R_pH_vec);
+          println ("Debug: [", i ,";", j, "] u= ", u[i][j], " pH= ", pH(u[i][j]) ," R= ", r_pani);
+          redcol = ceil(r_pani/(r_max - r_min)*255);
           
           float r_mem = R_i(t, 20, 20, true);
           
@@ -840,7 +840,7 @@ void draw()
   {
 
     tt++;
-
+    t=tt;
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();

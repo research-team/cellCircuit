@@ -50,7 +50,7 @@ Calculate the R using the time parameter starting from simulation and pulses set
 */
 float R_i(float t, float period, float duty, boolean is_learning){
   float res = 0.0;
-  
+   println ("Debug: [", t ,";", period,"]");
   float t_exposure = t * duty / 100;
   res= (v_max-v_min) / i_t(t_exposure, is_learning);
   return res;
