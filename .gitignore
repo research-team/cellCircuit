@@ -55,3 +55,5 @@ docs/_build/
 
 # PyBuilder
 target/
+
+BZ4Memristors_v00/sequence/*
