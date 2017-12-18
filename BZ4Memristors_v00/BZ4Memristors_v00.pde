@@ -840,7 +840,12 @@ void draw()
   {
 
     tt++;
-    t=tt;
+    // use loop time
+    //t= tt*0.45;
+    //use  millis from the program start.
+    t=  millis()/1000;
+    println ("Debug: [Iteration time: ", t ,"]");
+    
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();
