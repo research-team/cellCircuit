@@ -80,7 +80,7 @@ Calculate the R using the time parameter starting from simulation and pulses set
 */
 float R_i(float t, float period, float duty, boolean is_oxidation){
   float res = 0.0;
-   println ("Debug: [", t ,";", period,"]");
+  // println ("Debug: [", t ,";", period,"]");
   float t_exposure = t * duty / 100;
   if (is_oxidation){
     res= abs((u_ox) / i_t(t_exposure, is_oxidation));

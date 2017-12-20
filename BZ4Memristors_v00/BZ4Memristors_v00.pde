@@ -2,6 +2,7 @@
 
 //MovieMaker mm;  // Declare MovieMaker object
 
+boolean DEBUG = true;
 PrintWriter outputEpsilon, outputActivity;
 
 float 
@@ -88,8 +89,8 @@ float maxu, maxv, minu, minv;
 
 void setup() 
 { 
-
-  outputEpsilon = createWriter("epsilon.txt");  //<>// //<>//
+ //<>//
+  outputEpsilon = createWriter("epsilon.txt");  //<>//
   outputActivity = createWriter("activity.txt");
   // 3 reactor layers 300*300
   size(300, 900);  
@@ -147,8 +148,8 @@ void setup()
       unew[i][j]=q*(f+1)/(f-1);
       vnew[i][j]=q*(f+1)/(f-1);
     } 
-
-  //perturb(150,43); //p1 //<>//
+ //<>//
+  //perturb(150,43); //p1
   // perturb(47, 47); // p1
   perturb(120, 10); // p3 //<>//
 
@@ -498,7 +499,6 @@ void drawbz()
   line(0,300,300,300);
   line(0,600,300,600);
 
-  println ("Debug: [Iteration time: ", t ,"]");
   // image(b,0,0);
   for (i=1; i<=ni; i++)
   {
@@ -507,13 +507,6 @@ void drawbz()
       if (SaveVideo==0)
       { 
         if ((u[i][j]>0.1)||(v[i][j]>0.1))  // 0.1 threshold are good values for both u and v
-          /*
-         if (
-           (u[i-1][j-1]+u[i][j-1]+u[i+1][j-1]+
-           u[i-1][j]+  u[i][j]  +u[i+1][j]+
-           u[i-1][j+1]+u[i][j+1]+u[i+1][j+1])/8.
-           >0.65)
-           */
         {
           redcol=ceil(u[i][j]*255.); 
           if (redcol>255) redcol=255;
@@ -531,10 +524,10 @@ void drawbz()
           point(i, j+300);
           float r_mem = R_i(t, 20, 20, true);       
           
-          bluecol = ceil(r_mem/(R_mem_ox_max() - R_mem_ox_min())*255);
+          bluecol = ceil(r_mem/(r_max - r_min)*255);
           stroke(0, greencol, bluecol);
           point(i, j+600);
-          println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
+          //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
           
       }
       } else 
@@ -551,6 +544,7 @@ void drawbz()
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
+  println ("Debug: [Iteration time: ", t ,"]");
 }
 
 void develop()
@@ -856,8 +850,6 @@ void draw()
     t= tt*0.45;
     //use  millis from the program start.
     //t=  millis()/1000;
-    println ("Debug: tt=", tt);
-    println ("Debug: [Iteration time: ", t ,"]");
     
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
     // if (ShowGradient==1) drawGradient();
