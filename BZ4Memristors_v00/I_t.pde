@@ -7,6 +7,14 @@ float I0_red = -11.7E-9;
 float A_red = -41.0E-7;
 float t_red = -45.0;
 
+// electric pulse parameters
+
+float v_red = -0.1;
+float v_ox = 0.8;
+
+float I_max = 7.5E-6;
+float I_min = -7.5E-6;
+
 float T_previous = 0.0;
 /**
 Calculate I depending on memorized R depending on time of current exposure. 
@@ -14,12 +22,12 @@ Calculate I depending on memorized R depending on time of current exposure.
 @param is_learning the current in the direction of learning
 @return the value of I
 */
-float i_t(float t, boolean is_learning){
+float i_t(float t, boolean is_oxidation){
   float res = 0.0;
   float I0 = 0.0;
   float A = 0.0;
   float tau = 0.0;
-  if (is_learning) {
+  if (is_oxidation) {
     //oxidation
     I0  = I0_ox;
     A = A_ox;
@@ -35,11 +43,6 @@ float i_t(float t, boolean is_learning){
   return res;
 }
 
-// electronic pulse parameters
-
-float v_min = 0.4;
-float v_max = 0.8;
-
 /**
 Calculate the R using the time parameter starting from simulation and pulses setup.
 @param t - the current time of a simulation
@@ -48,10 +51,15 @@ Calculate the R using the time parameter starting from simulation and pulses set
 @param is_learning the current in the direction of learning
 @returns the resintance value
 */
-float R_i(float t, float period, float duty, boolean is_learning){
+float R_i(float t, float period, float duty, boolean is_oxidation){
   float res = 0.0;
    println ("Debug: [", t ,";", period,"]");
   float t_exposure = t * duty / 100;
-  res= (v_max-v_min) / i_t(t_exposure, is_learning);
+  if (is_oxidation){
+    res= abs((v_ox) / i_t(t_exposure, is_oxidation));
+  } else {
+    res= abs((v_red) / i_t(t_exposure, is_oxidation));
+  }
+  
   return res;
 }

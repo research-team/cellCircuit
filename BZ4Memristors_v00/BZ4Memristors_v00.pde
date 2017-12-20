@@ -91,8 +91,8 @@ void setup()
 
   outputEpsilon = createWriter("epsilon.txt");  //<>//
   outputActivity = createWriter("activity.txt");
-
-  size(300, 600); 
+  // 3 reactor layers 300*300
+  size(300, 900);  
   colorMode(RGB, 255);
   //  x = new int[n+4][n+4]; 
   //  pixRGB = new byte[3];
@@ -515,16 +515,18 @@ void drawbz()
           //if ((redcol<=40)&&(bluecol<=100)) {redcol=255;greencol=255;bluecol=255;}
           stroke(redcol, greencol, bluecol);
           point(i, j);
+          // Resistance and electric spikes
           float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
           float r_pani = R_pH(pH(u[i][j]), R_pH_vec);
-          println ("Debug: [", i ,";", j, "] u= ", u[i][j], " pH= ", pH(u[i][j]) ," R= ", r_pani);
           redcol = ceil(r_pani/(r_max - r_min)*255);
-          
-          float r_mem = R_i(t, 20, 20, true);
-          
-          println ("Debug: r mem", r_mem);
           stroke(redcol, greencol, 0);
           point(i, j+300);
+          float r_mem = R_i(t, 20, 20, true);
+          redcol = ceil(r_mem/(r_max - r_min)*255);
+          stroke(redcol, greencol, 0);
+          point(i, j+300);
+          println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
+          
       }
       } else 
       {
