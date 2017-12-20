@@ -76,6 +76,10 @@ int modulation_period=10;
 float u[][], unew[][], v[][], vnew[][];
 float lapse[][];
 
+float spikes[][], spikes_new[][];
+float one_spike_val = 0.3;
+float leakage = 0.1; 
+
 float averageu=0;
 int redcol, bluecol, greencol;
 float Reaction;
@@ -85,11 +89,11 @@ float sign;
 int ci, cj;
 float t, freqx=0, freqy=0;
 int theta;
-float maxu, maxv, minu, minv;
+float maxu, maxv, minu, minv; //<>//
 
 void setup() 
 { 
- //<>//
+
   outputEpsilon = createWriter("epsilon.txt");  //<>//
   outputActivity = createWriter("activity.txt");
   // 3 reactor layers 300*300
@@ -144,11 +148,11 @@ void setup()
     for (j=0; j<=nj+1; j++)
     {
       u[i][j]=q*(f+1)/(f-1);
-      v[i][j]=q*(f+1)/(f-1);
+      v[i][j]=q*(f+1)/(f-1); //<>//
       unew[i][j]=q*(f+1)/(f-1);
       vnew[i][j]=q*(f+1)/(f-1);
     } 
- //<>//
+
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
   perturb(120, 10); // p3 //<>//
@@ -326,95 +330,48 @@ void map()
     for (j=1; j<=nj; j++)
       if (C[i][j]==1)
       {
-
         Epsilon=epsilon;
+        A[i][j]=AA;
+        Reaction=(u[i][j]-u[i][j]*u[i][j]-(f*v[i][j]+fi+sign*A[i][j]/2.)*(u[i][j]-q)/(u[i][j]+q));
 
-        //if (LowExc(140, 160, i, j, 30)) Epsilon=0.026; 
+        unew[i][j]=u[i][j]+
+          Du*(
+          (dt/(dx*dx))*(u[i+1][j]-2*u[i][j]+u[i-1][j])+
+          (dt/(dx*dx))*(u[i][j+1]-2*u[i][j]+u[i][j-1])
+          ) +
+          (dt/Epsilon)*Reaction;
+
+        if (unew[i][j]<0.) unew[i][j]=0;
+
+        vnew[i][j]=v[i][j]+dt*(u[i][j]-v[i][j])
+          +Dv*(
+          (dt/(dx*dx))*(v[i+1][j]-2*v[i][j]+v[i-1][j])+
+          (dt/(dx*dx))*(v[i][j+1]-2*v[i][j]+v[i][j-1])
+          );
+
+        if (vnew[i][j]<0.) vnew[i][j]=0;
+
+        averageu=averageu+u[i][j];
+      }
+
+  averageu=averageu/(1.0*ni*nj);
+}
 
 
-        /*
-        if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.026; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.026; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.027;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         */
-        /* // x=1 y= z=0
-         if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.026; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.026; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.027;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         */
+/**
+Generates random spikes that are considered 0.3 as input for every pixel neuron (later should be replaced with 
+Izhikevich neurons).
 
-        /* // x=0 y=1 z=0
-         if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.023; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.026; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.027;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         */
-
-        /* // x=1 y=1 z=1
-         if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.023; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.023; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.023;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         */
-
-        /* // x=1 y=0 z=1     
-         if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.025; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.025; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.023;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         
-         */
-
-        /* // x=1 y=0 z=1     
-         if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.023; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.025; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.025;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         */
-
-        /* // x=0 y=1 z=1        
-         if (LowExc(Ax, Ay, i, j, 30)) Epsilon=0.026; 
-         if (LowExc(Bx, By, i, j, 30)) Epsilon=0.023; 
-         if (LowExc(J1x, J1y, i, j, 25)) Epsilon=0.025;  
-         if (LowExc(J2x, J2y, i, j, 25)) Epsilon=0.025;
-         
-         if (LowExc(E1x, E1y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E2x, E2y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E3x, E3y, i, j, 30)) Epsilon=0.024;
-         if (LowExc(E4x, E4y, i, j, 30)) Epsilon=0.024;
-         */
+*/
+void updateElectricalState()
+{
+  float Epsilon;
+  averageu=0.0;
+  for (i=1; i<=ni; i++)
+    for (j=1; j<=nj; j++)
+      if (C[i][j]==1)
+      {
+        Epsilon=epsilon;
         A[i][j]=AA;
         Reaction=(u[i][j]-u[i][j]*u[i][j]-(f*v[i][j]+fi+sign*A[i][j]/2.)*(u[i][j]-q)/(u[i][j]+q));
 
