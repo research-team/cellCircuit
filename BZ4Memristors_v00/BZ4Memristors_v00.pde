@@ -522,9 +522,9 @@ void drawbz()
           stroke(redcol, greencol, 0);
           point(i, j+300);
           float r_mem = R_i(t, 20, 20, true);
-          redcol = ceil(r_mem/(r_max - r_min)*255);
-          stroke(redcol, greencol, 0);
-          point(i, j+300);
+          bluecol = ceil(r_mem/(r_max - r_min)*255);
+          stroke(0, greencol, bluecol);
+          point(i, j+600);
           println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
           
       }
