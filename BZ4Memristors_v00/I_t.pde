@@ -9,15 +9,42 @@ float t_red = -45.0;
 
 // electric pulse parameters
 
-float v_red = -0.1;
-float v_ox = 0.8;
+float u_red = -0.1;
+float u_ox = 0.8;
 
 float I_max = 7.5E-6;
+float I_0 = 0.166666667E-6;
 float I_min = -7.5E-6;
+
+/**
+Returns max value of resistance based on minimal current and U=0.8V in case of reduction
+*/
+float R_mem_red_max() {
+  return abs(u_red / I_0);
+}
+/**
+Returns min value of resistance based on maximum current and U=0.8V in case of reduction
+*/
+float R_mem_red_min() {
+  return abs(u_red / I_max);
+}
+
+/**
+Returns max value of resistance based on minimal current and U=0.8V in case of reduction
+*/
+float R_mem_ox_max() {
+  return abs(u_ox / I_min);
+}
+/**
+Returns min value of resistance based on maximum current and U=0.8V in case of reduction
+*/
+float R_mem_ox_min() {
+  return abs(u_ox / I_0);
+}
 
 float T_previous = 0.0;
 /**
-Calculate I depending on memorized R depending on time of current exposure. 
+Calculates I depending on memorized R depending on time of current exposure. 
 @param t the time of electrical current in the pulse
 @param is_learning the current in the direction of learning
 @return the value of I
@@ -56,9 +83,9 @@ float R_i(float t, float period, float duty, boolean is_oxidation){
    println ("Debug: [", t ,";", period,"]");
   float t_exposure = t * duty / 100;
   if (is_oxidation){
-    res= abs((v_ox) / i_t(t_exposure, is_oxidation));
+    res= abs((u_ox) / i_t(t_exposure, is_oxidation));
   } else {
-    res= abs((v_red) / i_t(t_exposure, is_oxidation));
+    res= abs((u_red) / i_t(t_exposure, is_oxidation));
   }
   
   return res;

@@ -89,10 +89,12 @@ float maxu, maxv, minu, minv;
 void setup() 
 { 
 
-  outputEpsilon = createWriter("epsilon.txt");  //<>//
+  outputEpsilon = createWriter("epsilon.txt");  //<>// //<>//
   outputActivity = createWriter("activity.txt");
   // 3 reactor layers 300*300
   size(300, 900);  
+  
+  
   colorMode(RGB, 255);
   //  x = new int[n+4][n+4]; 
   //  pixRGB = new byte[3];
@@ -146,7 +148,7 @@ void setup()
       vnew[i][j]=q*(f+1)/(f-1);
     } 
 
-  //perturb(150,43); //p1
+  //perturb(150,43); //p1 //<>//
   // perturb(47, 47); // p1
   perturb(120, 10); // p3 //<>//
 
@@ -490,10 +492,16 @@ void drawbz()
 {
   //background(b); 
   background(0);
+  
+  // separator
   stroke(102, 204, 102);
   line(0,300,300,300);
+  line(0,600,300,600);
+
+  println ("Debug: [Iteration time: ", t ,"]");
   // image(b,0,0);
   for (i=1; i<=ni; i++)
+  {
     for (j=1; j<=nj; j++)
     {
       if (SaveVideo==0)
@@ -521,8 +529,9 @@ void drawbz()
           redcol = ceil(r_pani/(r_max - r_min)*255);
           stroke(redcol, greencol, 0);
           point(i, j+300);
-          float r_mem = R_i(t, 20, 20, true);
-          bluecol = ceil(r_mem/(r_max - r_min)*255);
+          float r_mem = R_i(t, 20, 20, true);       
+          
+          bluecol = ceil(r_mem/(R_mem_ox_max() - R_mem_ox_min())*255);
           stroke(0, greencol, bluecol);
           point(i, j+600);
           println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
@@ -540,7 +549,7 @@ void drawbz()
         point(i, j);
       }
     }
-
+  }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
 }
 
@@ -842,10 +851,12 @@ void draw()
   {
 
     tt++;
+    println ("Empty");
     // use loop time
-    //t= tt*0.45;
+    t= tt*0.45;
     //use  millis from the program start.
-    t=  millis()/1000;
+    //t=  millis()/1000;
+    println ("Debug: tt=", tt);
     println ("Debug: [Iteration time: ", t ,"]");
     
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
