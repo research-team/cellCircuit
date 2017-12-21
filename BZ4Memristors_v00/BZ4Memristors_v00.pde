@@ -78,7 +78,6 @@ float lapse[][];
 
 float spikes[][], spikes_new[][];
 float one_spike_val = 0.3;
-float leakage = 0.1; 
 
 float averageu=0;
 int redcol, bluecol, greencol;

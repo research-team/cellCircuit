@@ -7,14 +7,14 @@ float  c=-65; //mV
 float  d=4;
 float  dt_neuron=0.5; //0.25; // time step
 
-float u[] = new float[1000];
-float unew[] = new float[1000];
-float v[] = new float[1000];
-float vnew[] = new float[1000];
-float I[] = new float[1000];
+float leakage[][] = new float[number_of_neurons_y][number_of_neurons_x];
+float leakage_new[][] = new float[number_of_neurons_y][number_of_neurons_x];
+float potential[][] = new float[number_of_neurons_y][number_of_neurons_x];
+float potential_new[][] = new float[number_of_neurons_y][number_of_neurons_x];
+float I[][] = new float[number_of_neurons_y][number_of_neurons_x];
 float v_thresh=30;
 
-int   t=0;
+int neuro_time=0;
 
 float dI=4; //current increment controlled manually 
 
