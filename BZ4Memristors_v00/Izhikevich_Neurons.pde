@@ -3,7 +3,7 @@ int number_of_neurons_y = 300;
 
 float  a=0.02; 
 float  b_neuron=0.2;
-float  c=-65; //mV
+float  resting_potential=-65; //mV
 float  d=4;
 float  dt_neuron=0.5; //0.25; // time step
 
@@ -36,11 +36,12 @@ void UpdateNeuronStates()
     for (int j=1; i<=number_of_neurons_y; j++) { 
       if (v[i][j] >= v_thresh) 
       { 
-        vnew[i] = c; 
-        unew[i] = u[i] + d;
-        if (i==1) NumFired[2]=1;
-        if (i==2) NumFired[1]=1;
-        I[i]=0;
+        potential_new[i][j] = resting_potential; 
+        leakage_new[i][j] = leakage[i][j] + d;
+        //TODO update NumFired
+        //if (i==1) NumFired[2]=1;
+        //if (i==2) NumFired[1]=1;
+        I[i][j]=0;
       } else 
       {
         I[i]=I[i]+4*NumFired[i];
