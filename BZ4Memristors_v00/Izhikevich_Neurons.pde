@@ -1,3 +1,6 @@
+boolean IZHI_DEBUG = true;
+
+
 int number_of_neurons_x = 300;
 int number_of_neurons_y = 300;
 
@@ -25,15 +28,14 @@ void UpdateNeuronStates()
 {
   int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x];
 
-  for (int i=1; i<=number_of_neurons_x; i++) {
-    for (int j=1; i<=number_of_neurons_y; j++) {
+  for (int i=0; i<number_of_neurons_x; i++) {
+    for (int j=0; j<number_of_neurons_y; j++) {
       NumFired[i][j] = 0;
     }
   }
-
-
-  for (int i=1; i<=number_of_neurons_x; i++) {
-    for (int j=1; i<=number_of_neurons_y; j++) { 
+  
+  for (int i=0; i<number_of_neurons_x; i++) {
+    for (int j=0; j<number_of_neurons_y; j++) { 
       if (potential[i][j] >= v_thresh) 
       { 
         potential_new[i][j] = resting_potential; 
@@ -48,37 +50,64 @@ void UpdateNeuronStates()
         potential_new[i][j] = potential[i][j] + dt*(0.04*potential[i][j]*potential[i][j] + 5*potential[i][j] + 140 - leakage[i][j] + I[i][j]);
         leakage_new[i][j] = leakage[i][j] + dt*(a * ((b_neuron*potential[i][j])-leakage[i][j]));
       }
-      println("I: "+I[i][j]+" V= "+ potential[i][j]);
+      if (IZHI_DEBUG) println("[Debug] I: "+I[i][j]+" V= "+ potential[i][j]);
     }
   }
 }
 
 /**
- @param n - the number of neurons
+ Updates the state of neurons in the 2D array rewriting the potential and leakage values
  */
-void RewriteNeuronStates(int n)
+void RewriteNeuronStates()
 {
-  for (int i=1; i<=n; i++) 
+  for (int i=0; i<number_of_neurons_x; i++) 
   {
-    potential[i][j]=potential_new[i][j];
-    leakage[i][j]=leakage_new[i][j];
+    for (int j=0; j<number_of_neurons_y; j++){
+      potential[i][j]=potential_new[i][j];
+      leakage[i][j]=leakage_new[i][j];
+    }
   }
 }
 
 /**
+Updates the current value in the point in 2D space identified by x and y.
+@param x the abscissa of the point to process
+@param y the ordinate of the point to process
  */
-void updateCurrent(int x, int y)
+void UpdateCurrent(int x, int y)
 {
   float excitation_rnd = noise(x, y);
   float inhibition_rnd = noise(x, y);
 
   if (excitation_rnd > inhibition_rnd) 
   {
-    I[x][y]=I[x][y]+dI; 
-    println("I="+I[i][j]);
+    I[x][y]=I[x][y]+dI;
   } else 
   {
     I[x][y]=I[x][y]+dI; 
-    println("I="+I[i][j]);
   }
+  if (IZHI_DEBUG) println("[Debug] I: "+I[x][y]);
+}
+
+/**
+Updates the value of the current in every point of the 2D space
+*/
+void UpdateCurrent() {
+  for (int i=0; i<number_of_neurons_x; i++) 
+  {
+    for (int j=0; j<number_of_neurons_y; j++){
+      UpdateCurrent(i,j);      
+    }
+  }
+}
+
+/**
+Implements the neuronal life cycle updating leakage and potential values
+*/
+void neuronal_life_cycle (){
+
+  UpdateCurrent();
+  UpdateNeuronStates();
+  RewriteNeuronStates();
+
 }

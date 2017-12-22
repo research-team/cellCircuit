@@ -356,48 +356,6 @@ void map()
   averageu=averageu/(1.0*ni*nj);
 }
 
-
-/**
-Generates random spikes that are considered 0.3 as input for every pixel neuron (later should be replaced with 
-Izhikevich neurons).
-
-*/
-void updateElectricalState()
-{
-  float Epsilon;
-  averageu=0.0;
-  for (i=1; i<=ni; i++)
-    for (j=1; j<=nj; j++)
-      if (C[i][j]==1)
-      {
-        Epsilon=epsilon;
-        A[i][j]=AA;
-        Reaction=(u[i][j]-u[i][j]*u[i][j]-(f*v[i][j]+fi+sign*A[i][j]/2.)*(u[i][j]-q)/(u[i][j]+q));
-
-        unew[i][j]=u[i][j]+
-          Du*(
-          (dt/(dx*dx))*(u[i+1][j]-2*u[i][j]+u[i-1][j])+
-          (dt/(dx*dx))*(u[i][j+1]-2*u[i][j]+u[i][j-1])
-          ) +
-          (dt/Epsilon)*Reaction;
-
-        if (unew[i][j]<0.) unew[i][j]=0;
-
-        vnew[i][j]=v[i][j]+dt*(u[i][j]-v[i][j])
-          +Dv*(
-          (dt/(dx*dx))*(v[i+1][j]-2*v[i][j]+v[i-1][j])+
-          (dt/(dx*dx))*(v[i][j+1]-2*v[i][j]+v[i][j-1])
-          );
-
-        if (vnew[i][j]<0.) vnew[i][j]=0;
-
-        averageu=averageu+u[i][j];
-      }
-
-  averageu=averageu/(1.0*ni*nj);
-}
-
-
 void Modulate()
 {
   if (MODULATE)
@@ -508,7 +466,7 @@ void develop()
   sign=-1.0;
   //if ((fmod(t,modulation_period)==0)&&(modulate==1)) sign=-1.0*sign;
   map();
-  rewrite_and_concave();
+  rewrite_and_concave(); 
 }
 
 
@@ -801,7 +759,7 @@ void draw()
   {
 
     tt++;
-    println ("Empty");
+    print ("");
     // use loop time
     t= tt*0.45;
     //use  millis from the program start.
@@ -812,6 +770,7 @@ void draw()
     // if (ShowOnlyMaxU==1) ShowMaxU();
     // drawFlakes();
     develop();
+    neuronal_life_cycle();
 
     if (tt%10==0) SaveLapse(tt);
 
