@@ -1,4 +1,4 @@
-boolean IZHI_DEBUG = true;
+boolean IZHI_DEBUG = false;
 
 
 int number_of_neurons_x = 300;
@@ -84,6 +84,7 @@ void UpdateCurrent(int x, int y)
   {
     I[x][y]=I[x][y]-dI; 
   }
+  I[x][y] = noise(x,y)*100;
   if (IZHI_DEBUG) println("[Debug] I: "+I[x][y]);
 }
 
