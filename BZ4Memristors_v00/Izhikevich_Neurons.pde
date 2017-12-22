@@ -38,13 +38,13 @@ void UpdateNeuronStates()
       { 
         potential_new[i][j] = resting_potential; 
         leakage_new[i][j] = leakage[i][j] + d;
+        I[i][j]=0;
         //TODO update NumFired
         //if (i==1) NumFired[2]=1;
         //if (i==2) NumFired[1]=1;
-        I[i][j]=0;
       } else 
       {
-        I[i][j]=I[i][j]+4*NumFired[i][j];
+        //I[i][j]=I[i][j]+4*NumFired[i][j];
         potential_new[i][j] = potential[i][j] + dt*(0.04*potential[i][j]*potential[i][j] + 5*potential[i][j] + 140 - leakage[i][j] + I[i][j]);
         leakage_new[i][j] = leakage[i][j] + dt*(a * ((b_neuron*potential[i][j])-leakage[i][j]));
       }
@@ -69,15 +69,16 @@ void RewriteNeuronStates(int n)
  */
 void updateCurrent(int x, int y)
 {
-  if (key == CODED) {
-    if (keyCode == UP) 
-    {
-      I[1]=I[1]+dI; 
-      println("I="+I[1]);
-    } else if (keyCode == DOWN) 
-    {
-      I[1]=I[1]-dI; 
-      println("I="+I[1]);
-    }
+  float excitation_rnd = noise(x, y);
+  float inhibition_rnd = noise(x, y);
+
+  if (excitation_rnd > inhibition_rnd) 
+  {
+    I[x][y]=I[x][y]+dI; 
+    println("I="+I[i][j]);
+  } else 
+  {
+    I[x][y]=I[x][y]+dI; 
+    println("I="+I[i][j]);
   }
 }
