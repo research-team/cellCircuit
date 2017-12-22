@@ -430,19 +430,12 @@ void drawbz()
           //if ((redcol<=40)&&(bluecol<=100)) {redcol=255;greencol=255;bluecol=255;}
           stroke(redcol, greencol, bluecol);
           point(i, j);
-          // Resistance and electric spikes
+          // Resistance of polyaniline matrix
           float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
           float r_pani = R_pH(pH(u[i][j]), R_pH_vec);
           redcol = ceil(r_pani/(r_max - r_min)*255);
           stroke(redcol, greencol, 0);
           point(i, j+300);
-          float r_mem = R_i(t, 20, 20, true);       
-          
-          bluecol = ceil(r_mem/(r_max - r_min)*255);
-          stroke(0, greencol, bluecol);
-          point(i, j+600);
-          //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
-          
       }
       } else 
       {
@@ -455,6 +448,12 @@ void drawbz()
         stroke(redcol, greencol, bluecol);
         point(i, j);
       }
+      //electrical activity and resistance of memristors
+      float r_mem = R_i(t, 20, 20, true);
+      bluecol = NumFired[i-1][j-1]*255;
+      stroke(0, greencol, bluecol);
+      point(i, j+600);
+      //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
