@@ -34,7 +34,7 @@ void UpdateNeuronStates()
 
   for (int i=1; i<=number_of_neurons_x; i++) {
     for (int j=1; i<=number_of_neurons_y; j++) { 
-      if (v[i][j] >= v_thresh) 
+      if (potential[i][j] >= v_thresh) 
       { 
         potential_new[i][j] = resting_potential; 
         leakage_new[i][j] = leakage[i][j] + d;
@@ -44,11 +44,11 @@ void UpdateNeuronStates()
         I[i][j]=0;
       } else 
       {
-        I[i]=I[i]+4*NumFired[i];
-        vnew[i] = v[i] + dt*(0.04*v[i]*v[i] + 5*v[i] + 140 - u[i] + I[i]);
-        unew[i] = u[i] + dt*(a * ((b*v[i])-u[i]));
+        I[i][j]=I[i][j]+4*NumFired[i][j];
+        potential_new[i][j] = potential[i][j] + dt*(0.04*potential[i][j]*potential[i][j] + 5*potential[i][j] + 140 - leakage[i][j] + I[i][j]);
+        leakage_new[i][j] = leakage[i][j] + dt*(a * ((b_neuron*potential[i][j])-leakage[i][j]));
       }
-      println("I: "+I[1]+" "+I[2]+" V= "+v[1]+" "+v[2]);
+      println("I: "+I[i][j]+" V= "+ potential[i][j]);
     }
   }
 }
@@ -60,8 +60,8 @@ void RewriteNeuronStates(int n)
 {
   for (int i=1; i<=n; i++) 
   {
-    v[i]=vnew[i];
-    u[i]=unew[i];
+    potential[i][j]=potential_new[i][j];
+    leakage[i][j]=leakage_new[i][j];
   }
 }
 
