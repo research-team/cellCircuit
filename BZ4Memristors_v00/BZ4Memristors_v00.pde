@@ -160,6 +160,7 @@ void setup()
   perturb(120, 10); // p3
 
   InitialisePANISegmentsStates();
+  InitialiseMemristorsStates();
 
   image(b, 0, 0);
 }
@@ -465,7 +466,7 @@ void drawbz()
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
-  println ("Debug: [Iteration time: ", t, "]");
+  //println ("Debug: [Iteration time: ", t, "]");
 }
 
 void develop()

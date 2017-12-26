@@ -6,6 +6,8 @@ boolean MEM_DEBUG = false;
 
 int number_of_memristors_x = 300;
 int number_of_memristors_y = 300;
+float default_segment_resistance = 20E6; // 20 mOhm initialisation
+float default_memristor_resistance = 5E6; // 20 mOhm initialisation
 
 float R_pani[][] = new float[number_of_memristors_x][number_of_memristors_y]; // the resistance of every PANI segment
 float R_mem[][] = new float[number_of_memristors_x][number_of_memristors_y]; // the resistance of every memristor connected to the PANI segment
@@ -13,7 +15,7 @@ float R_mem[][] = new float[number_of_memristors_x][number_of_memristors_y]; // 
 /**
  Updates states of memristors in 2D matrix.
  */
-void UpdateMemristorStates()
+void UpdateMemristorsStates()
 { 
   for (int i=0; i<number_of_neurons_x; i++) {
     for (int j=0; j<number_of_neurons_y; j++) { 
@@ -27,13 +29,35 @@ void UpdateMemristorStates()
 }
 
 /**
- Updates states of PANI segments in 2D matrix.
+Initialises states of PANI segments in 2D matrix.
 */
 void InitialisePANISegmentsStates()
 {
    for (int i=0; i<number_of_neurons_x; i++) {
     for (int j=0; j<number_of_neurons_y; j++) {
-      R_pani[i][j] = 20; // 20 mOhm initialisation
+      R_pani[i][j] = default_segment_resistance;
     }
   }
+}
+
+
+/**
+Initialises states of memristors segments in 2D matrix.
+*/
+void InitialiseMemristorsStates()
+{
+   for (int i=0; i<number_of_neurons_x; i++) {
+    for (int j=0; j<number_of_neurons_y; j++) {
+      R_pani[i][j] = default_memristor_resistance; 
+    }
+  }
+}
+
+/**
+Implements the memristors life cycle updating leakage and potential values
+*/
+void memristors_life_cycle (){
+
+  UpdateMemristorsStates();
+
 }
