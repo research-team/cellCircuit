@@ -1,5 +1,8 @@
-boolean IZHI_DEBUG = false;
+/**
+This script is responsible for the Izhikevich neurons states processing
+*/
 
+boolean IZHI_DEBUG = false;
 
 int number_of_neurons_x = 300;
 int number_of_neurons_y = 300;
@@ -39,9 +42,7 @@ void UpdateNeuronStates()
         potential_new[i][j] = resting_potential; 
         leakage_new[i][j] = leakage[i][j] + d;
         I[i][j]=0;
-        //TODO update NumFired
         NumFired[i][j]=1;
-        //if (i==2) NumFired[1]=1;
       } else 
       {
         I[i][j]=I[i][j]+4*NumFired[i][j];

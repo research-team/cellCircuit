@@ -1,4 +1,4 @@
-//import processing.video.*;
+//import processing.video.*; //<>// //<>// //<>// //<>//
 
 //MovieMaker mm;  // Declare MovieMaker object
 
@@ -76,8 +76,7 @@ int modulation_period=10;
 float u[][], unew[][], v[][], vnew[][];
 float lapse[][];
 
-float spikes[][], spikes_new[][];
-float one_spike_val = 0.3;
+float spikes[][], spikes_new[][]; // the number of spikes in every segment
 
 float averageu=0;
 int redcol, bluecol, greencol;
@@ -88,17 +87,17 @@ float sign;
 int ci, cj;
 float t, freqx=0, freqy=0;
 int theta;
-float maxu, maxv, minu, minv; //<>//
+float maxu, maxv, minu, minv;
 
 void setup() 
 { 
 
-  outputEpsilon = createWriter("epsilon.txt");  //<>//
+  outputEpsilon = createWriter("epsilon.txt"); 
   outputActivity = createWriter("activity.txt");
   // 3 reactor layers 300*300
   size(300, 900);  
-  
-  
+
+
   colorMode(RGB, 255);
   //  x = new int[n+4][n+4]; 
   //  pixRGB = new byte[3];
@@ -147,14 +146,14 @@ void setup()
     for (j=0; j<=nj+1; j++)
     {
       u[i][j]=q*(f+1)/(f-1);
-      v[i][j]=q*(f+1)/(f-1); //<>//
+      v[i][j]=q*(f+1)/(f-1);
       unew[i][j]=q*(f+1)/(f-1);
       vnew[i][j]=q*(f+1)/(f-1);
     } 
 
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
-  perturb(120, 10); // p3 //<>//
+  perturb(120, 10); // p3
 
   image(b, 0, 0);
 }
@@ -207,10 +206,10 @@ void perturb(int pci, int pcj)
 {
   int ci, cj;
 
-  if (pci < reactor_width && pcj < reactor_height){
+  if (pci < reactor_width && pcj < reactor_height) {
     ci=pci;
     cj=pcj;
-  
+
     ci=pci; 
     cj=pcj;
     for (j=ci-10; j<=ci+10; j++)
@@ -221,18 +220,18 @@ void perturb(int pci, int pcj)
 
 
 
-  // also generate opposite particle
+    // also generate opposite particle
 
-  //ci=ni-15; cj=nj/2+offset;
-  //for(j=cj-10;j<=cj+10;j++)
-  //  u[ci][j]=1.0;
+    //ci=ni-15; cj=nj/2+offset;
+    //for(j=cj-10;j<=cj+10;j++)
+    //  u[ci][j]=1.0;
 
 
-  // generate big particle
+    // generate big particle
 
-  //  ci=ni-25; cj=nj/2+offset;
-  // for(j=cj-5;j<=cj+5;j++)
-  //   {u[ci][j]=1.0;ci++;}
+    //  ci=ni-25; cj=nj/2+offset;
+    // for(j=cj-5;j<=cj+5;j++)
+    //   {u[ci][j]=1.0;ci++;}
   }
 }
 
@@ -245,7 +244,7 @@ void perturb1(int pci, int pcj)
   cj=pcj;
 
 
-  if (pci < reactor_width && pcj < reactor_height){
+  if (pci < reactor_width && pcj < reactor_height) {
     ci=pci; 
     cj=pcj;
     for (j=ci-10; j<=ci+10; j++)
@@ -253,7 +252,7 @@ void perturb1(int pci, int pcj)
       u[j][cj]=1.0;
       u[j][cj+1]=1.0;
     }
-    
+
     ci=pci+1; 
     cj=pcj+1;
     for (j=ci-10; j<=ci+10; j++)
@@ -261,9 +260,8 @@ void perturb1(int pci, int pcj)
       v[j][cj]=1.0;
       v[j][cj+1]=1.0;
     }
-
   }
-  
+
 
 
   // also generate opposite particle
@@ -368,8 +366,8 @@ void Modulate()
 }
 
 /**
-Recalculates u - actuator and v - inhibitor. 
-*/
+ Recalculates u - actuator and v - inhibitor. 
+ */
 void rewrite_and_concave()
 {
   newactivity=0;
@@ -386,14 +384,13 @@ void rewrite_and_concave()
   // println(activity);
   //  for(i=0;i<=ni+1;i++) {u[i][0]=u[i][nj];v[i][0]=v[i][nj];u[i][nj+1]=u[i][1];v[i][nj+1]=v[i][1];}
   //  for(j=0;j<=nj+1;j++) {u[0][j]=u[ni][j];v[0][j]=v[ni][j];u[ni+1][j]=u[1][j];v[ni+1][j]=v[1][j];}
-  
 }
 
 /**
-Calculates pH based on u (activation).
-@param u - the float BZ activation parameter
-
-*/
+ Calculates pH based on u (activation).
+ @param u - the float BZ activation parameter
+ 
+ */
 float pH(float u) {
   float res = 8 + 2*u;
   return res;
@@ -401,17 +398,18 @@ float pH(float u) {
 
 
 /**
-Drawing BZ reaction on the screen.
-*/
+ Drawing BZ reaction on the screen.
+ */
 void drawbz()
 {
   //background(b); 
   background(0);
-  
+  float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
+
   // separator
   stroke(102, 204, 102);
-  line(0,300,300,300);
-  line(0,600,300,600);
+  line(0, 300, 300, 300);
+  line(0, 600, 300, 600);
 
   // image(b,0,0);
   for (i=1; i<=ni; i++)
@@ -431,12 +429,12 @@ void drawbz()
           stroke(redcol, greencol, bluecol);
           point(i, j);
           // Resistance of polyaniline matrix
-          float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
-          float r_pani = R_pH(pH(u[i][j]), R_pH_vec);
-          redcol = ceil(r_pani/(r_max - r_min)*255);
+          
+          R_pani[i][j] = R_pH(pH(u[i][j]), R_pH_vec);
+          redcol = ceil(R_pani[i][j]/(r_max - r_min)*255);
           stroke(redcol, greencol, 0);
           point(i, j+300);
-      }
+        }
       } else 
       {
         redcol=ceil(u[i][j]*255.); 
@@ -448,6 +446,7 @@ void drawbz()
         stroke(redcol, greencol, bluecol);
         point(i, j);
       }
+
       //electrical activity and resistance of memristors
       float r_mem = R_i(t, 20, 20, true);
       bluecol = NumFired[i-1][j-1]*255;
@@ -457,7 +456,7 @@ void drawbz()
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
-  println ("Debug: [Iteration time: ", t ,"]");
+  println ("Debug: [Iteration time: ", t, "]");
 }
 
 void develop()
@@ -465,7 +464,7 @@ void develop()
   sign=-1.0;
   //if ((fmod(t,modulation_period)==0)&&(modulate==1)) sign=-1.0*sign;
   map();
-  rewrite_and_concave(); 
+  rewrite_and_concave();
 }
 
 
@@ -488,7 +487,7 @@ void mousePressed()
     //cc=get(ssi, ssj);
     //println(red(cc)+","+green(cc)+","+blue(cc)+","+ssi+","+ssj);   
     //  u[ssi][ssj]=1.0;
-    
+
     perturb1(mouseX, mouseY);
   } 
 
@@ -763,7 +762,7 @@ void draw()
     t= tt*0.45;
     //use  millis from the program start.
     //t=  millis()/1000;
-    
+
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();
