@@ -1,3 +1,5 @@
+boolean R_DEBUG = true;
+
 //for the oxidation 
 float I0_ox = 74.9E-7;
 float A_ox = -86.2E-7;
@@ -107,6 +109,6 @@ float R_spikes(float spikes, float period, float duty, boolean is_oxidation){
   } else {
     res= abs((u_red) / i_t(t_exposure, is_oxidation));
   }
-  
+  if (R_DEBUG) println ("[DEBUG] R_mem=", res);
   return res;
 }
