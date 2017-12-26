@@ -458,8 +458,8 @@ void drawbz()
       stroke(0, greencol, blueSpikes);
       point(i, j+300);
       // Total resistance
-      //greenResistance = ceil((R_pani[i-1][j-1]+R_mem[i-1][j-1])/(r_max - r_min)*255);
-      greenResistance = ceil((R_mem[i-1][j-1]-r_min)/(r_max - r_min)*255);
+      greenResistance = ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
+      //greenResistance = ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
       //greenResistance = ceil((Spikes[i-1][j-1])/(2)*255);
       stroke(0, greenResistance, 0);
       point(i, j+600);
@@ -468,7 +468,7 @@ void drawbz()
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
-  //println ("Debug: [Iteration time: ", t, "]");
+  println ("Debug: [Simulation time: ", t, "]");
 }
 
 void develop()

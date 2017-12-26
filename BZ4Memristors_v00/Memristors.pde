@@ -9,6 +9,12 @@ int number_of_memristors_y = 300;
 float default_segment_resistance = 20E6; // 20 mOhm initialisation
 float default_memristor_resistance = 5E6; // 20 mOhm initialisation
 
+float R_mem_min = 0.107E6;
+float R_mem_max = 5E6;
+
+float R_pani_min = 20E6;
+float R_pani_max = 120E6;
+
 float R_pani[][] = new float[number_of_memristors_x][number_of_memristors_y]; // the resistance of every PANI segment
 float R_mem[][] = new float[number_of_memristors_x][number_of_memristors_y]; // the resistance of every memristor connected to the PANI segment
 

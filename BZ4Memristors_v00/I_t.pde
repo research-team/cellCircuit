@@ -1,4 +1,4 @@
-boolean R_DEBUG = true;
+boolean R_DEBUG = false;
 
 //for the oxidation 
 float I0_ox = 74.9E-7;
