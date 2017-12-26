@@ -74,17 +74,8 @@ Updates the current value in the point in 2D space identified by x and y.
  */
 void UpdateCurrent(int x, int y)
 {
-  float excitation_rnd = noise(x, y);
-  float inhibition_rnd = noise(x, y);
-
-  if (excitation_rnd > inhibition_rnd) 
-  {
-    I[x][y]=I[x][y]+dI;
-  } else 
-  {
-    I[x][y]=I[x][y]-dI; 
-  }
-  I[x][y] = noise(x,y)*100;
+  float excitation_rnd = random(-dI*0.3, dI);
+  I[x][y] = I[x][y] + excitation_rnd;
   if (IZHI_DEBUG) println("[Debug] I: "+I[x][y]);
 }
 

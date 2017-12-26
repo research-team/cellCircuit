@@ -80,6 +80,7 @@ void keyPressed()
     save("frame.png"); 
     exit();
   }
+  
   if (key == CODED) {
     if (keyCode == UP) 
     {
