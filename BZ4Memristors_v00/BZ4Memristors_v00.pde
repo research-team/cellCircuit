@@ -76,10 +76,12 @@ int modulation_period=10;
 float u[][], unew[][], v[][], vnew[][];
 float lapse[][];
 
-float spikes[][], spikes_new[][]; // the number of spikes in every segment
+// electrical parameters
+float[] R_pH_vec; 
 
 float averageu=0;
 int redcol, bluecol, greencol;
+int blueSpikes, greenResistance;
 float Reaction;
 
 int i, j, z, sum, sumx, sumy, count;
@@ -124,6 +126,8 @@ void setup()
   aj=new int[num_flakes+1];
   Flake = new int[num_flakes+1];
 
+  R_pH_vec = parseFile(R_pH_file_name, x_max);
+
   frameRate(35);
   stroke(255); 
 
@@ -154,6 +158,8 @@ void setup()
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
   perturb(120, 10); // p3
+
+  InitialisePANISegmentsStates();
 
   image(b, 0, 0);
 }
@@ -404,8 +410,7 @@ void drawbz()
 {
   //background(b); 
   background(0);
-  float[] R_pH_vec = parseFile(R_pH_file_name, x_max);
-
+  
   // separator
   stroke(102, 204, 102);
   line(0, 300, 300, 300);
@@ -428,12 +433,11 @@ void drawbz()
           //if ((redcol<=40)&&(bluecol<=100)) {redcol=255;greencol=255;bluecol=255;}
           stroke(redcol, greencol, bluecol);
           point(i, j);
-          // Resistance of polyaniline matrix
-          
+          // Resistance of polyaniline matrix segment
           R_pani[i][j] = R_pH(pH(u[i][j]), R_pH_vec);
-          redcol = ceil(R_pani[i][j]/(r_max - r_min)*255);
+          /*redcol = ceil(R_pani[i][j]/(r_max - r_min)*255);
           stroke(redcol, greencol, 0);
-          point(i, j+300);
+          point(i, j+300);*/
         }
       } else 
       {
@@ -447,11 +451,16 @@ void drawbz()
         point(i, j);
       }
 
-      //electrical activity and resistance of memristors
-      float r_mem = R_i(t, 20, 20, true);
-      bluecol = NumFired[i-1][j-1]*255;
-      stroke(0, greencol, bluecol);
+      //TODO add Resistance here
+      // Spikes
+      blueSpikes = NumFired[i-1][j-1]*255;
+      stroke(0, greencol, blueSpikes);
+      point(i, j+300);
+      // Total resistance
+      greenResistance = ceil((R_pani[i-1][j-1]+R_mem[i-1][j-1])/(r_max - r_min)*255);
+      stroke(0, greenResistance, 0);
       point(i, j+600);
+      
       //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
     }
   }

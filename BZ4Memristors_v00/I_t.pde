@@ -90,3 +90,23 @@ float R_i(float t, float period, float duty, boolean is_oxidation){
   
   return res;
 }
+
+/**
+Calculate the R using the number of spikes parameter starting from simulation and pulses setup.
+@param spikes - the current time of a simulation
+@param period - a pulse period in ms
+@param duty - a duty ratio of pulses in percents
+@param is_learning the current in the direction of learning
+@returns the resintance value
+*/
+float R_spikes(float spikes, float period, float duty, boolean is_oxidation){
+  float res = 0.0;
+  float t_exposure = spikes * period * duty / 100;
+  if (is_oxidation){
+    res= abs((u_ox) / i_t(t_exposure, is_oxidation));
+  } else {
+    res= abs((u_red) / i_t(t_exposure, is_oxidation));
+  }
+  
+  return res;
+}

@@ -20,6 +20,8 @@ float potential_new[][] = new float[number_of_neurons_y][number_of_neurons_x];
 float I[][] = new float[number_of_neurons_y][number_of_neurons_x];
 float v_thresh=-55.0;
 int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fired neurons 2D matrix
+int[][] spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
+
 int neuro_time=0;
 
 float dI=4; //current increment controlled manually 
@@ -43,6 +45,7 @@ void UpdateNeuronStates()
         leakage_new[i][j] = leakage[i][j] + d;
         I[i][j]=0;
         NumFired[i][j]=1;
+        spikes[i][j] ++; 
       } else 
       {
         I[i][j]=I[i][j]+4*NumFired[i][j];
