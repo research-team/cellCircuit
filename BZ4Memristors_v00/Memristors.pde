@@ -21,7 +21,7 @@ void UpdateMemristorsStates()
     for (int j=0; j<number_of_neurons_y; j++) { 
       if (NumFired[i][j]==1) 
       { 
-        R_mem[i][j] = R_mem[i][j] + R_spikes(spikes[i][j], 20, 20, true);
+        R_mem[i][j] = R_mem[i][j] + R_spikes(Spikes[i][j], 20, 20, true);
       } 
       if (MEM_DEBUG) println("[Debug] R_mem="+R_mem[i][j]+" Fired=", NumFired[i][j]);
     }

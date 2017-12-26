@@ -20,7 +20,7 @@ float potential_new[][] = new float[number_of_neurons_y][number_of_neurons_x];
 float I[][] = new float[number_of_neurons_y][number_of_neurons_x];
 float v_thresh=-55.0;
 int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fired neurons 2D matrix
-int[][] spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
+int[][] Spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
 
 int neuro_time=0;
 
@@ -45,14 +45,14 @@ void UpdateNeuronStates()
         leakage_new[i][j] = leakage[i][j] + d;
         I[i][j]=0;
         NumFired[i][j]=1;
-        spikes[i][j] ++; 
+        Spikes[i][j] ++; 
       } else 
       {
         I[i][j]=I[i][j]+4*NumFired[i][j];
         potential_new[i][j] = potential[i][j] + dt*(0.04*potential[i][j]*potential[i][j] + 5*potential[i][j] + 140 - leakage[i][j] + I[i][j]);
         leakage_new[i][j] = leakage[i][j] + dt*(a * ((b_neuron*potential[i][j])-leakage[i][j]));
       }
-      if (IZHI_DEBUG) println("[Debug] I="+I[i][j]+" V="+ potential[i][j], " Fired=", NumFired[i][j]);
+      if (IZHI_DEBUG) println("[Debug] I="+I[i][j]+" V="+ potential[i][j], " Fired=", NumFired[i][j], " spikes=", Spikes[i][j]);
     }
   }
 }

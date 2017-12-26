@@ -128,7 +128,7 @@ void setup()
 
   R_pH_vec = parseFile(R_pH_file_name, x_max);
 
-  frameRate(35);
+  frameRate(10);
   stroke(255); 
 
   // initialisation
@@ -458,7 +458,9 @@ void drawbz()
       stroke(0, greencol, blueSpikes);
       point(i, j+300);
       // Total resistance
-      greenResistance = ceil((R_pani[i-1][j-1]+R_mem[i-1][j-1])/(r_max - r_min)*255);
+      //greenResistance = ceil((R_pani[i-1][j-1]+R_mem[i-1][j-1])/(r_max - r_min)*255);
+      greenResistance = ceil((R_mem[i-1][j-1])/(r_max - r_min)/100*255);
+      //greenResistance = ceil((Spikes[i-1][j-1])/(2)*255);
       stroke(0, greenResistance, 0);
       point(i, j+600);
       
