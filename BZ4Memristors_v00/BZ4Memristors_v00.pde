@@ -436,6 +436,7 @@ void drawbz()
           point(i, j);
           // Resistance of polyaniline matrix segment
           R_pani[i][j] = R_pH(pH(u[i][j]), R_pH_vec);
+          // println ("[DEBUG] R_pani=", R_pani[i][j]);
           /*redcol = ceil(R_pani[i][j]/(r_max - r_min)*255);
           stroke(redcol, greencol, 0);
           point(i, j+300);*/
@@ -458,13 +459,13 @@ void drawbz()
       stroke(0, greencol, blueSpikes);
       point(i, j+300);
       // Total resistance
-      greenResistance = ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
-      //greenResistance = ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
-      //greenResistance = ceil((Spikes[i-1][j-1])/(2)*255);
-      stroke(0, greenResistance, 0);
+      int greenResistance_pani = ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
+      int greenResistance_mem = ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
+      //TODO add proper scales
+      stroke(0, greenResistance_pani+greenResistance_mem, 0);
       point(i, j+600);
       
-      //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", r_pani, "R_mem=", r_mem);
+      //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1], "R_mem=", R_mem[i-1][j-1]);
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);

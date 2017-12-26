@@ -115,7 +115,7 @@ float R_pH(float pH, float[] R_pH_vec) throws IllegalArgumentException {
     // println("pH ", pH ,"index ", index_i, " length ", R_pH_vec.length);
     res = R_pH_vec[index_i];
   }
-  return res;
+  return res*1E6;
 }
 /**
 Tests the R_pH function
