@@ -753,7 +753,7 @@ void drawGradient()
       point(i, j);
     }
 }
-
+//main cycle
 void draw()
 {
 
@@ -768,24 +768,32 @@ void draw()
     DrawC();
   } else 
   {
-
+    //////////////////////////////
+    //// TIME
+    //////////////////////////////
     tt++;
-    print ("");
     // use loop time
     t= tt*0.45;
     //use  millis from the program start.
     //t=  millis()/1000;
-
+    //////////////////////////////
+    ///// Drawing
+    //////////////////////////////
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();
     // drawFlakes();
+    
+    /////////////////////////////
+    ///// Main CYCLE
+    ////////////////////////////
     develop();
     neuronal_life_cycle();
     memristors_life_cycle();
-
+    ///////////////////////////
+    ///// Image processing
     if (tt%10==0) SaveLapse(tt);
-
+    ///////////////////////////
     //outputEpsilon.println(epsilon);
     //outputActivity.println(activity);
 
