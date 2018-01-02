@@ -777,7 +777,8 @@ void draw()
     ///// BZ once a 450
     ////////////////////////////
     
-    int globalShift=450;//shift for the Time to reduce frame rate affect and speed up simulation
+    int globalShift=450;//shift for the Time to reduce frame rate affect and speed up simulation, used to divided IZ neurons and BZ reaction
+    
     int bzOffset=450/globalShift;
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)
     && tt%bzOffset==0) 
