@@ -768,28 +768,40 @@ void draw()
     DrawC();
   } else 
   {
-    //////////////////////////////
-    //// TIME
-    //////////////////////////////
     tt++;
-    // use loop time
-    t= tt*0.45;
+   // t=tt;// /0.45;
     //use  millis from the program start.
     //t=  millis()/1000;
-    //////////////////////////////
-    ///// Drawing
-    //////////////////////////////
-    if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)) drawbz();
+    println("Cycle:"+t);
+    ////////////////////////////
+    ///// BZ once a 450
+    ////////////////////////////
+    
+    int globalShift=450;//shift for the Time to reduce frame rate affect and speed up simulation
+    int bzOffset=450/globalShift;
+    if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)
+    && tt%bzOffset==0) 
+    {
+       println("DrawBZ:"+t);
+      develop(); //calculate matrix
+      drawbz(); //bz reaction 450 ms, matrix inhibition+excausted
+      //BZ cycle
+      t++;
+    }
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();
     // drawFlakes();
     
     /////////////////////////////
-    ///// Main CYCLE
+    ///// Neuronal spikes once a 1 ms
     ////////////////////////////
-    develop();
-    neuronal_life_cycle();
-    memristors_life_cycle();
+   
+    //1 ms
+    for (int nSpike=1; nSpike<=globalShift; nSpike++)
+     {
+      neuronal_life_cycle();
+      memristors_life_cycle();
+     }
     ///////////////////////////
     ///// Image processing
     if (tt%10==0) SaveLapse(tt);
