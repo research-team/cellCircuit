@@ -87,10 +87,10 @@ float Reaction;
 int i, j, z, sum, sumx, sumy, count;
 float sign;
 int ci, cj;
-float t, freqx=0, freqy=0;
+float  freqx=0, freqy=0;
 int theta;
 float maxu, maxv, minu, minv;
-
+int bzLifeCycle_t=0;
 void setup() 
 { 
 
@@ -426,7 +426,7 @@ void drawbz()
       { 
         if ((u[i][j]>0.1)||(v[i][j]>0.1))  // 0.1 threshold are good values for both u and v
         {
-          redcol=ceil(u[i][j]*255.); 
+          redcol=ceil(u[i][j]*255.);  //<>//
           if (redcol>255) redcol=255;
           bluecol=ceil(v[i][j]*600.); 
           if (bluecol>255) bluecol=255;
@@ -469,7 +469,7 @@ void drawbz()
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
-  println ("Debug: [Simulation time: ", t, "]");
+ 
 }
 
 void develop()
@@ -772,7 +772,7 @@ void draw()
    // t=tt;// /0.45;
     //use  millis from the program start.
     //t=  millis()/1000;
-    println("Cycle:"+t);
+    println("Cycle:"+tt);
     ////////////////////////////
     ///// BZ once a 450
     ////////////////////////////
@@ -783,11 +783,13 @@ void draw()
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)
     && tt%bzOffset==0) 
     {
-       println("DrawBZ:"+t);
-      develop(); //calculate matrix
+       println("DrawBZ:"+bzLifeCycle_t);
+     
       drawbz(); //bz reaction 450 ms, matrix inhibition+excausted
+       develop(); //calculate matrix develop(); //calculate matrix
       //BZ cycle
-      t++;
+      bzLifeCycle_t++;
+      
     }
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();
