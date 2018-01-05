@@ -87,7 +87,7 @@ float R_i(float t, float period, float duty, boolean is_oxidation){
   if (is_oxidation){
     res= abs((u_ox) / i_t(t_exposure, is_oxidation));
   } else {
-    res= (u_red) / i_t(t_exposure, is_oxidation);
+    res= - abs((u_red) / i_t(t_exposure, is_oxidation));
   }
   
   return res;
