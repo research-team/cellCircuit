@@ -426,7 +426,7 @@ void drawbz()
       { 
         if ((u[i][j]>0.1)||(v[i][j]>0.1))  // 0.1 threshold are good values for both u and v
         {
-          redcol=ceil(u[i][j]*255.);  //<>//
+          redcol=ceil(u[i][j]*255.); 
           if (redcol>255) redcol=255;
           bluecol=ceil(v[i][j]*600.); 
           if (bluecol>255) bluecol=255;
@@ -436,7 +436,7 @@ void drawbz()
           point(i, j);
           // Resistance of polyaniline matrix segment
           R_pani[i][j] = R_pH(pH(u[i][j]), R_pH_vec);
-          // println ("[DEBUG] R_pani=", R_pani[i][j]);
+        
           /*redcol = ceil(R_pani[i][j]/(r_max - r_min)*255);
           stroke(redcol, greencol, 0);
           point(i, j+300);*/
@@ -459,11 +459,15 @@ void drawbz()
       stroke(0, greencol, blueSpikes);
       point(i, j+300);
       // Total resistance
-      int greenResistance_pani = ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
-      int greenResistance_mem = ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
-      //TODO add proper scales
-      stroke(0, greenResistance_pani+greenResistance_mem, 0);
+      int resistColor_pani=ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
+      int resistColor_mem= ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
+      
+   
+      
+      stroke(0, resistColor_pani, 0);
       point(i, j+600);
+      stroke(0,0, resistColor_mem);
+      point(i, j+640);
       
       //println ("Debug: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1], "R_mem=", R_mem[i-1][j-1]);
     }

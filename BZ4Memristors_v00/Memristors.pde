@@ -11,7 +11,7 @@ float default_memristor_resistance = 5E6; // 20 mOhm initialisation
 
 float R_mem_min = 0.107E6;
 float R_mem_max = 5E6;
-
+//20 megaOm
 float R_pani_min = 20E6;
 float R_pani_max = 120E6;
 
@@ -27,6 +27,7 @@ void UpdateMemristorsStates()
     for (int j=0; j<number_of_neurons_y; j++) { 
       if (NumFired[i][j]==1) 
       { 
+        //rectangular spikes
         R_mem[i][j] = R_mem[i][j] + R_spikes(Spikes[i][j], 20, 20, true);
       } 
       if (MEM_DEBUG) println("[Debug] R_mem="+R_mem[i][j]+" Fired=", NumFired[i][j]);
