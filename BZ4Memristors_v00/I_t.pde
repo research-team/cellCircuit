@@ -87,7 +87,7 @@ float R_i(float t, float period, float duty, boolean is_oxidation){
   if (is_oxidation){
     res= abs((u_ox) / i_t(t_exposure, is_oxidation));
   } else {
-    res= abs((u_red) / i_t(t_exposure, is_oxidation));
+    res= (u_red) / i_t(t_exposure, is_oxidation);
   }
   
   return res;
@@ -107,7 +107,7 @@ float R_spikes(float spikes, float period, float duty, boolean is_oxidation){
   if (is_oxidation){
     res= abs((u_ox) / i_t(t_exposure, is_oxidation));
   } else {
-    res= abs((u_red) / i_t(t_exposure, is_oxidation));
+    res= - abs((u_red) / i_t(t_exposure, is_oxidation));
   }
   if (R_DEBUG) println ("[DEBUG] R_mem=", res);
   return res;
