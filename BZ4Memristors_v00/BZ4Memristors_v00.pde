@@ -461,9 +461,6 @@ void drawbz()
       // Total resistance
       int resistColor_pani=ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
       int resistColor_mem= ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
-      
-   
-      
       stroke(0, resistColor_pani, 0);
       point(i, j+600);
       stroke(0,0, resistColor_mem);
@@ -787,13 +784,11 @@ void draw()
     if ((SaveMax==0)&&(ShowOnlyMaxU==0)&&(ShowGradient==0)
     && tt%bzOffset==0) 
     {
-       println("DrawBZ:"+bzLifeCycle_t);
-     
+      println("DrawBZ:"+bzLifeCycle_t);
       drawbz(); //bz reaction 450 ms, matrix inhibition+excausted
-       develop(); //calculate matrix develop(); //calculate matrix
+      develop(); //calculate matrix develop(); //calculate matrix
       //BZ cycle
       bzLifeCycle_t++;
-      
     }
     // if (ShowGradient==1) drawGradient();
     // if (ShowOnlyMaxU==1) ShowMaxU();

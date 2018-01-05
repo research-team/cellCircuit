@@ -2,7 +2,7 @@
 This script is responsible for the PANI segments and memristors states processing
 */
 
-boolean MEM_DEBUG = false;
+boolean MEM_DEBUG = true;
 
 int number_of_memristors_x = 300;
 int number_of_memristors_y = 300;
@@ -30,7 +30,7 @@ void UpdateMemristorsStates()
         //rectangular spikes
         R_mem[i][j] = R_spikes(Spikes[i][j], 20, 20, true);
       } 
-      if (MEM_DEBUG) println("[Debug] R_mem="+R_mem[i][j]+" Fired=", NumFired[i][j]);
+      if (MEM_DEBUG) println("[Memristors] R_mem="+R_mem[i][j]+" Fired=", Spikes[i][j]);
     }
   }
 }
