@@ -464,9 +464,9 @@ void drawbz()
       stroke(0, resistColor_pani, 0);
       point(i, j+600);
       stroke(0,0, resistColor_mem);
-      point(i, j+640);
+      point(i, j+600);
       
-      println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1], "R_mem=", R_mem[i-1][j-1]);
+      // println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1], "R_mem=", R_mem[i-1][j-1]);
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);

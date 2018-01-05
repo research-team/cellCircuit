@@ -2,7 +2,7 @@
 This script is responsible for the PANI segments and memristors states processing
 */
 
-boolean MEM_DEBUG = true;
+boolean MEM_DEBUG = false;
 
 int number_of_memristors_x = 300;
 int number_of_memristors_y = 300;
