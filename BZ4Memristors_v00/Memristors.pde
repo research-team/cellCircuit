@@ -9,7 +9,7 @@ int number_of_memristors_y = 300;
 float default_segment_resistance = 20E6; // 20 mOhm initialisation
 float default_memristor_resistance = 5E6; // 20 mOhm initialisation
 
-float R_mem_min = 0.107E6;
+float R_mem_min = 1.07E4;
 float R_mem_max = 5E6;
 //20 megaOm
 float R_pani_min = 20E6;
@@ -55,7 +55,7 @@ void InitialiseMemristorsStates()
 {
    for (int i=0; i<number_of_neurons_x; i++) {
     for (int j=0; j<number_of_neurons_y; j++) {
-      R_pani[i][j] = default_memristor_resistance; 
+      R_mem[i][j] = default_memristor_resistance; 
     }
   }
 }

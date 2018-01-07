@@ -461,12 +461,14 @@ void drawbz()
       stroke(0, greencol, blueSpikes);
       point(i, j+300);
       // Total resistance
-      int resistColor_pani=ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
+      int resistColor_pani=ceil((R_pani[i-1][j-1]-R_pani_min)/(R_pani_max - R_pani_min)*255);
       int resistColor_mem= ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
-      stroke(0,resistColor_mem, resistColor_mem);
+      int weighted_color = (resistColor_mem + resistColor_pani)/2;
+      
+      stroke(weighted_color, weighted_color , weighted_color);
       point(i, j+600);
-      stroke(0, resistColor_pani, 0);
-      point(i, j+600);
+      // stroke(0, resistColor_pani, 0);
+      // point(i, j+600);
       
       printCycle++;
       
@@ -477,6 +479,9 @@ void drawbz()
       textFont(font,10);
       fill(255);
       text("R_mem:"+ R_mem[i-1][j-1],1,610);
+      textFont(font,10);
+      fill(255);
+      text("R_pani:"+ R_pani[i-1][j-1],1,620);
       }
     }
   }
