@@ -4,6 +4,7 @@
 
 boolean DEBUG = true;
 int printCycle=0;
+PFont font;
 PrintWriter outputEpsilon, outputActivity;
 
 float 
@@ -94,7 +95,7 @@ float maxu, maxv, minu, minv;
 int bzLifeCycle_t=0;
 void setup() 
 { 
-
+font = createFont("Arial",16,true);
   outputEpsilon = createWriter("epsilon.txt"); 
   outputActivity = createWriter("activity.txt");
   // 3 reactor layers 300*300
@@ -468,9 +469,14 @@ void drawbz()
       point(i, j+600);
       
       printCycle++;
-      if (printCycle%1000==0){
+      
+      if (printCycle%100000==0){
       println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1]
       , "R_mem=", R_mem[i-1][j-1], "R_mem_color=",resistColor_mem);
+      
+      textFont(font,10);
+      fill(255);
+      text("R_mem:"+ R_mem[i-1][j-1],1,610);
       }
     }
   }
