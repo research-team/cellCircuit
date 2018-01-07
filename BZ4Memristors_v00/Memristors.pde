@@ -27,8 +27,8 @@ void UpdateMemristorsStates()
     for (int j=0; j<number_of_neurons_y; j++) { 
       if (NumFired[i][j]==1) 
       { 
-        //rectangular spikes
-        R_mem[i][j] = R_spikes(Spikes[i][j], 20, 20, true);
+        //rectangular spikes with period of 2 milliseconds
+        R_mem[i][j] = R_spikes(Spikes[i][j], 20E-3, 20, true);
       } 
       if (MEM_DEBUG) println("[Memristors] R_mem="+R_mem[i][j]+" Fired=", Spikes[i][j]);
     }

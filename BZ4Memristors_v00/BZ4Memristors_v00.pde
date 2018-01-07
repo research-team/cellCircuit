@@ -473,15 +473,15 @@ void drawbz()
       printCycle++;
       
       if (printCycle%100000==0){
-      println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1]
-      , "R_mem=", R_mem[i-1][j-1], "R_mem_color=",resistColor_mem);
+      // println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1]
+      // , "R_mem=", R_mem[i-1][j-1], "R_mem_color=",resistColor_mem, " Spikes=", Spikes[i-1][j-1]);
       
       textFont(font,10);
       fill(255);
       text("R_mem:"+ R_mem[i-1][j-1],1,610);
       textFont(font,10);
       fill(255);
-      text("R_pani:"+ R_pani[i-1][j-1],1,620);
+      text("Spikes:"+ Spikes[i-1][j-1],1,620);
       }
     }
   }
