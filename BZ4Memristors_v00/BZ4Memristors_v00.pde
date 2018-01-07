@@ -3,6 +3,7 @@
 //MovieMaker mm;  // Declare MovieMaker object
 
 boolean DEBUG = true;
+int printCycle=0;
 PrintWriter outputEpsilon, outputActivity;
 
 float 
@@ -461,12 +462,16 @@ void drawbz()
       // Total resistance
       int resistColor_pani=ceil((R_pani[i-1][j-1])/(R_pani_max - R_pani_min)*255);
       int resistColor_mem= ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
+      stroke(0,resistColor_mem, resistColor_mem);
+      point(i, j+600);
       stroke(0, resistColor_pani, 0);
       point(i, j+600);
-      stroke(0,0, resistColor_mem);
-      point(i, j+600);
       
-      // println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1], "R_mem=", R_mem[i-1][j-1]);
+      printCycle++;
+      if (printCycle%1000==0){
+      println ("BZ4Memristors: [", i ,";", j, "] u=", u[i][j], " pH=", pH(u[i][j]) ," R_pani=", R_pani[i-1][j-1]
+      , "R_mem=", R_mem[i-1][j-1], "R_mem_color=",resistColor_mem);
+      }
     }
   }
   // stroke(0,255,0);  strokeWeight(4); noFill(); ellipse(250,236,80,80);
