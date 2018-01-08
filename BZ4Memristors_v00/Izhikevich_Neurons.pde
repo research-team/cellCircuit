@@ -21,6 +21,7 @@ float I[][] = new float[number_of_neurons_y][number_of_neurons_x];
 float v_thresh=-55.0;
 int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fired neurons 2D matrix
 int[][] Spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
+int[][] Spikes_pixels = new int[reactor_width][reactor_height];
 
 int neuro_time=0;
 
