@@ -78,7 +78,8 @@ Updates the current value in the point in 2D space identified by x and y.
  */
 void UpdateCurrent(int x, int y)
 {
-  float excitation_rnd = random(-dI*0.3, dI);
+  float excitation_inclination = 0.8;
+  float excitation_rnd = random(-dI*excitation_inclination, dI);
   I[x][y] = I[x][y] + excitation_rnd;
   if (IZHI_DEBUG) println("[Debug] I: "+I[x][y]);
 }
@@ -94,6 +95,19 @@ void UpdateCurrent() {
     }
   }
 }
+
+/**
+Intialises the Spikes array with random history of spikes 
+*/
+void Initialise_Neurons(){
+  for (int i=0; i<number_of_neurons_x; i++) 
+  {
+    for (int j=0; j<number_of_neurons_y; j++){
+      Spikes[i][j] = ceil(random(0, 1)*1000);      
+    }
+  }
+}
+
 
 /**
 Implements the neuronal life cycle updating leakage and potential values

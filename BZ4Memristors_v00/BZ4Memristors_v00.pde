@@ -160,10 +160,11 @@ font = createFont("Arial",16,true);
   //perturb(150,43); //p1
   // perturb(47, 47); // p1
   perturb(120, 10); // p3
-
+  
+  Initialise_Neurons();
   InitialisePANISegmentsStates();
   InitialiseMemristorsStates();
-
+  
   image(b, 0, 0);
 }
 
@@ -466,11 +467,11 @@ void drawbz()
       float R_mem_max_log = log(R_mem_max);
       
       int resistColor_pani=ceil((R_pani[i-1][j-1]-R_pani_min)/(R_pani_max - R_pani_min)*255);
-      int resistColor_mem= ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
+      int resistColor_mem=ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max - R_mem_min)*255);
       int R_log_col = ceil((R_mem_log-R_mem_min_log)/(R_mem_max_log - R_mem_min_log)*255);
-      int weighted_color = (resistColor_mem + resistColor_pani)/2;
+      int weighted_color = (R_log_col + resistColor_pani)/2;
       
-      stroke(R_log_col, resistColor_pani , R_log_col);
+      stroke(weighted_color, weighted_color , weighted_color);
       point(i, j+600);
       // stroke(0, resistColor_pani, 0);
       // point(i, j+600);
@@ -483,11 +484,13 @@ void drawbz()
       
       textFont(font,10);
       fill(255);
-      text("R_mem:"+ R_mem[i-1][j-1],1,610);
-      text("Spikes:"+ Spikes[i-1][j-1],1,620);
+      text("R_mem:"+ R_mem[299][299],1,610);
+      text("Spikes:"+ Spikes[299][299],1,620);
       text("R_log_col:"+ R_log_col,1,630);
       text("R_mem:"+ R_mem[150][150],1,640);
       text("Spikes:"+ Spikes[150][150],1,650);
+      text("R_mem:"+ R_mem[0][0],1,660);
+      text("Spikes:"+ Spikes[0][0],1,670);
       }
     }
   }
