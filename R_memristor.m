@@ -6,3 +6,5 @@ t=linspace(0,300);
 i=i0+a*exp(t./tau);
 r=abs(u./i)
 plot(t,r);
+rlog=log(r);
+plot(t,rlog);
