@@ -458,7 +458,7 @@ void drawbz()
 
       //TODO add Resistance here
       // Spikes
-      blueSpikes = NumFired[i-1][j-1]*255;
+      blueSpikes = drawFired[i-1][j-1]*255;
       stroke(0, greencol, blueSpikes);
       point(i, j+300);
       // Total resistance
@@ -485,10 +485,10 @@ void drawbz()
       textFont(font,10);
       fill(255);
       text("R_mem:"+ R_mem[299][299],1,610);
-      text("Spikes:"+ Spikes[299][299],1,620);
+      text("Spikes:"+ Spikes[number_of_neurons_x-1][number_of_neurons_y-1],1,620);
       text("R_log_col:"+ R_log_col,1,630);
       text("R_mem:"+ R_mem[150][150],1,640);
-      text("Spikes:"+ Spikes[150][150],1,650);
+      text("Spikes:"+ Spikes[number_of_neurons_x/2][number_of_neurons_x/2],1,650);
       text("R_mem:"+ R_mem[0][0],1,660);
       text("Spikes:"+ Spikes[0][0],1,670);
       }

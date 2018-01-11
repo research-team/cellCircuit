@@ -29,10 +29,10 @@ void UpdateMemristorsStates()
 { 
   for (int i=0; i<number_of_memristors_x; i++) {
     for (int j=0; j<number_of_memristors_y; j++) { 
-      if (NumFired[i][j]==1) 
+      if (drawFired[i][j]==1) 
       { 
         //rectangular spikes with period of 20 milliseconds
-        R_mem[i][j] = R_spikes(Spikes[i][j], 20E-3, 20, true);
+        R_mem[i][j] = R_spikes(Spikes_pixels[i][j], 20E-3, 20, true);
       } 
       if (MEM_DEBUG) println("[Memristors] R_mem="+R_mem[i][j]+" Fired=", Spikes[i][j]);
     }

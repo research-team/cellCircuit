@@ -4,8 +4,8 @@ This script is responsible for the Izhikevich neurons states processing
 
 boolean IZHI_DEBUG = false;
 
-int number_of_neurons_x = 300;
-int number_of_neurons_y = 300;
+int number_of_neurons_x = 200;
+int number_of_neurons_y = 200;
 
 float  a=0.02; 
 float  b_neuron=0.2;
@@ -22,9 +22,9 @@ float v_thresh=-55.0;
 int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fired neurons 2D matrix
 int[][] Spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
 int[][] Spikes_pixels = new int[reactor_width][reactor_height];
-
+int offsetX; int offsetY;
 int neuro_time=0;
-
+int[][] drawFired= new int[reactor_width][reactor_height];
 float dI=4; //current increment controlled manually 
 
 /**
@@ -37,7 +37,11 @@ void UpdateNeuronStates()
       NumFired[i][j] = 0;
     }
   }
-  
+    for (int i=0; i<reactor_width; i++) {
+    for (int j=0; j<reactor_height; j++) {
+      drawFired[i][j] = 0;
+    }
+  }
   for (int i=0; i<number_of_neurons_x; i++) {
     for (int j=0; j<number_of_neurons_y; j++) { 
       if (potential[i][j] >= v_thresh) 
@@ -47,6 +51,7 @@ void UpdateNeuronStates()
         I[i][j]=0;
         NumFired[i][j]=1;
         Spikes[i][j] ++; 
+        _updateSpikesPixels(i,j);
       } else 
       {
         I[i][j]=I[i][j]+4*NumFired[i][j];
@@ -56,6 +61,41 @@ void UpdateNeuronStates()
       if (IZHI_DEBUG) println("[Debug] I="+I[i][j]+" V="+ potential[i][j], " Fired=", NumFired[i][j], " spikes=", Spikes[i][j]);
     }
   }
+}
+
+void _updateSpikesPixels(int indexX, int indexY){
+ //to decrease neuronal size one spike affect n_pixels.
+ offsetX=0;
+ offsetY=0;
+ //if (indexX==number_of_neurons_x/2-1) offsetX=reactor_width-number_of_neurons_x;
+ //if (indexY==number_of_neurons_y/2-1) offsetY=reactor_width-number_of_neurons_y;
+ float realDistributionX=(float)reactor_width/ (float)number_of_neurons_x;
+ float realDistributionY=(float)reactor_height/ (float)number_of_neurons_y;
+ int maxX=ceil(realDistributionX);
+ int maxY = ceil(realDistributionY);
+  
+ if (indexX+maxX+offsetX>reactor_width) offsetX=reactor_width-maxX-indexX;
+ if (indexY+maxY+offsetY>reactor_width) offsetY=reactor_width-maxY-indexY;
+ 
+ for (int iFillX=indexX; iFillX<indexX+maxX+offsetX;iFillX++)
+ {
+   for (int iFillY=indexY; iFillY<indexX+maxY+offsetY;iFillY++)
+   {
+      Spikes_pixels[iFillX][iFillY]++;
+      drawFired[iFillX][iFillY]=1;
+   } 
+ }
+}
+
+void setupIzhikevichN(){
+  
+}
+
+void _encodeMatrix(){
+  
+  
+  
+  
 }
 
 /**
