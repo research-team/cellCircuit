@@ -42,6 +42,8 @@ void UpdateNeuronStates()
       drawFired[i][j] = 0;
     }
   }
+  offsetX=0;
+  offsetY=0;
   for (int i=0; i<number_of_neurons_x; i++) {
     for (int j=0; j<number_of_neurons_y; j++) { 
       if (potential[i][j] >= v_thresh) 
@@ -68,8 +70,8 @@ Updates the graphical representation of spikes.
 */
 void _updateSpikesPixels(int indexX, int indexY){
  //to decrease neuronal size one spike affect n_pixels.
- offsetX=0;
- offsetY=0;
+ //offsetX=0;
+ //offsetY=0;
  //if (indexX==number_of_neurons_x/2-1) offsetX=reactor_width-number_of_neurons_x;
  //if (indexY==number_of_neurons_y/2-1) offsetY=reactor_width-number_of_neurons_y;
  float realDistributionX=(float)reactor_width/ (float)number_of_neurons_x;
@@ -78,16 +80,19 @@ void _updateSpikesPixels(int indexX, int indexY){
  int maxY = ceil(realDistributionY);
   
  if (indexX+maxX+offsetX>reactor_width) offsetX=reactor_width-maxX-indexX;
- if (indexY+maxY+offsetY>reactor_width) offsetY=reactor_width-maxY-indexY;
+ if (indexY+maxY+offsetY>reactor_height) offsetY=reactor_height-maxY-indexY;
  
- for (int iFillX=indexX; iFillX<indexX+maxX+offsetX;iFillX++)
+ 
+ for (int iFillX=indexX+offsetX; iFillX<indexX+maxX+offsetX;iFillX++)
  {
-   for (int iFillY=indexY; iFillY<indexY+maxY+offsetY;iFillY++)
+   for (int iFillY=indexY+offsetY; iFillY<indexY+maxY+offsetY;iFillY++)
    {
       Spikes_pixels[iFillX][iFillY]++;
       drawFired[iFillX][iFillY]=1;
    } 
  }
+ offsetX=indexX+maxX;
+ offsetY=indexY+maxY;
 }
 
 void setupIzhikevichN(){
