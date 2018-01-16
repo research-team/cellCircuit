@@ -23,12 +23,12 @@ int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fir
 int[][] Spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
 int[][] Spikes_pixels = new int[reactor_width][reactor_height];
 int offsetX; int offsetY;
-int maxDot=2;
+int maxDot=9;
 int neuro_time=0;
 int[][] drawFired= new int[reactor_width][reactor_height];
 float dI=4; //current increment controlled manually 
 //mapping array.
-DotMapping[][][] spikesMapping = new DotMapping[reactor_width][reactor_height][maxDot*maxDot+1];
+DotMapping[][][] spikesMapping = new DotMapping[reactor_width][reactor_height][reactor_width*4];
 
 class DotMapping{
   int x,y;
@@ -119,10 +119,9 @@ Update the spikes mapping
 */
 void _updateSpikesMapping(int indexX, int indexY){
   DotMapping[] map=spikesMapping[indexX][indexY];
-  for  (int i=0; i < maxDot*maxDot; i++){
+  for  (int i=0; i < reactor_width*reactor_width; i++){
     if (map[i]!=null)
     {
-      println("[Debug] "+map[i].x+" "+map[i].y);
       Spikes_pixels[map[i].x][map[i].y]++;
       drawFired[map[i].x][map[i].y]=1;
     }
@@ -134,47 +133,47 @@ void _updateSpikesMapping(int indexX, int indexY){
 
 void setupIzhikevichN(){
   //setup mapping to pixels
-  float realDistributionX=(float)reactor_width/ (float)number_of_neurons_x;
-  float realDistributionY=(float)reactor_height/ (float)number_of_neurons_y;
-  int maxX =maxDot;//ceil(realDistributionX);
-  int maxY =maxDot;//ceil(realDistributionY);
-  int minX =1;// floor(realDistributionX);
-  int minY =1;// floor(realDistributionY);
-  int offsetX=0, offsetY=0;
+  
+  int totalNeurons=number_of_neurons_x*number_of_neurons_y;
+  int totalReactorCapacity=reactor_width*reactor_height;
+  float capacity=totalReactorCapacity/totalNeurons;
+  int maxDot=floor(capacity);
+  
   //finalDot when we out of array and everything distributed already.
-  DotMapping finalDot=new DotMapping(reactor_width-1,reactor_height-1);
+   int iFillX=0,iFillY=0;
   for (int i=0; i < number_of_neurons_x; i++)
   {
     
     for (int j=0; j < number_of_neurons_y; j++){
-      //<>//
-      int rndX=int(random(minX,maxX));
-      int rndY=int(random(minY,maxY));
-      int maxFillX=i+offsetX+rndX;
-      int maxFillY= j+offsetY+rndY;
-      if (i+offsetX+rndX>=(reactor_width-1)) maxFillX=reactor_width;
-      if (j+offsetY+rndY>=(reactor_height-1)) maxFillY=reactor_height;
+      if (totalNeurons>0) capacity=totalReactorCapacity/totalNeurons;
+      totalNeurons--;
+      int maxDot2=floor(capacity);
+      int rndUpDot=int(random(floor(maxDot/2),max(maxDot,maxDot2)));
+      
+      //if (iFillX>=(reactor_width-1)) iFillX=reactor_width;
+      //if (iFillY>=(reactor_height-1)) iFillY=reactor_height;
       int dot=0;
-      int iFillX=0,iFillY=0;
-      for (iFillX=i+offsetX; iFillX<maxFillX;iFillX++)
+      println("[Debug] Cap:"+rndUpDot+" React:"
+      +totalReactorCapacity+" Neuron:"+totalNeurons+" i,j:"+i+","+j);
+      for (int dti=0; dti<rndUpDot; dti++)
+      {
+        totalReactorCapacity--;
+        spikesMapping[i][j][dot]=new DotMapping(iFillX,iFillY);
+        println("[Debug] X:"+(iFillX)+" Y:"+(iFillY)+" Z:"+dot);
+        dot++;
+        if (iFillX>=(reactor_width-1))
         {
-         for (iFillY=j+offsetY; iFillY<maxFillY;iFillY++)
-         {
-            if (spikesMapping[i][j][dot]==null || !spikesMapping[i][j][dot].set)
-            {
-               spikesMapping[i][j][dot] = new DotMapping(iFillX,iFillY);
-                  println("[Debug] "+(iFillX)+" "+(iFillY));
-               dot++;
-            }
-           
-         } 
+          iFillX=0;
+          iFillY++;
+         
         }
-       if (offsetX>299) 
-       {
-         println("[i Cycle] "+i); //<>//
-       }
-      offsetX=iFillX;
-      offsetY=iFillY;
+        else
+        {
+          iFillX++;
+         
+        }
+      }
+      
         
      
   }
