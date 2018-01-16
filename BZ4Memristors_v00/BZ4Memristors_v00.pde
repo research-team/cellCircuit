@@ -95,7 +95,8 @@ float maxu, maxv, minu, minv;
 int bzLifeCycle_t=0;
 void setup() 
 { 
-font = createFont("Arial",16,true);
+  setupIzhikevichN();
+  font = createFont("Arial",16,true);
   outputEpsilon = createWriter("epsilon.txt"); 
   outputActivity = createWriter("activity.txt");
   // 3 reactor layers 300*300

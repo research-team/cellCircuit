@@ -4,8 +4,8 @@ This script is responsible for the Izhikevich neurons states processing
 
 boolean IZHI_DEBUG = false;
 
-int number_of_neurons_x = 200;
-int number_of_neurons_y = 200;
+int number_of_neurons_x =100;
+int number_of_neurons_y = 100;
 
 float  a=0.02; 
 float  b_neuron=0.2;
@@ -23,9 +23,23 @@ int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fir
 int[][] Spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
 int[][] Spikes_pixels = new int[reactor_width][reactor_height];
 int offsetX; int offsetY;
+int maxDot=2;
 int neuro_time=0;
 int[][] drawFired= new int[reactor_width][reactor_height];
 float dI=4; //current increment controlled manually 
+//mapping array.
+DotMapping[][][] spikesMapping = new DotMapping[reactor_width][reactor_height][maxDot*maxDot+1];
+
+class DotMapping{
+  int x,y;
+  boolean set=false;
+  DotMapping(int _x, int _y){
+   x=_x;
+   y=_y;
+   set=true;
+  }
+}
+
 
 /**
  Updates states of the neurons in 2D matrix.
@@ -53,7 +67,7 @@ void UpdateNeuronStates()
         I[i][j]=0;
         NumFired[i][j]=1;
         Spikes[i][j] ++; 
-        _updateSpikesPixels(i,j);
+        _updateSpikesMapping(i,j);
       } else 
       {
         I[i][j]=I[i][j]+4*NumFired[i][j];
@@ -68,8 +82,12 @@ void UpdateNeuronStates()
 /**
 Updates the graphical representation of spikes.
 */
+
 void _updateSpikesPixels(int indexX, int indexY){
- //to decrease neuronal size one spike affect n_pixels.
+ int availableReactorX=reactor_width;
+ int availableReactorY=reactor_height;
+ 
+  //to decrease neuronal size one spike affect n_pixels.
  //offsetX=0;
  //offsetY=0;
  //if (indexX==number_of_neurons_x/2-1) offsetX=reactor_width-number_of_neurons_x;
@@ -95,23 +113,79 @@ void _updateSpikesPixels(int indexX, int indexY){
  offsetY=indexY+maxY;
 }
 
-void setupIzhikevichN(){
-  //setup mapping to pixels
-  float proportion = number_of_neurons_x*number_of_neurons_y/(reactor_width*reactor_height);
-  for (int i=0; i < number_of_neurons_x; i++){
-    for (int j=0; j < number_of_neurons_y; j++){
-      
+
+/***
+Update the spikes mapping 
+*/
+void _updateSpikesMapping(int indexX, int indexY){
+  DotMapping[] map=spikesMapping[indexX][indexY];
+  for  (int i=0; i < maxDot*maxDot; i++){
+    if (map[i]!=null)
+    {
+      println("[Debug] "+map[i].x+" "+map[i].y);
+      Spikes_pixels[map[i].x][map[i].y]++;
+      drawFired[map[i].x][map[i].y]=1;
+    }
+    else {
+      break;
     }
   }
-  
 }
 
-void _encodeMatrix(){
+void setupIzhikevichN(){
+  //setup mapping to pixels
+  float realDistributionX=(float)reactor_width/ (float)number_of_neurons_x;
+  float realDistributionY=(float)reactor_height/ (float)number_of_neurons_y;
+  int maxX =maxDot;//ceil(realDistributionX);
+  int maxY =maxDot;//ceil(realDistributionY);
+  int minX =1;// floor(realDistributionX);
+  int minY =1;// floor(realDistributionY);
+  int offsetX=0, offsetY=0;
+  //finalDot when we out of array and everything distributed already.
+  DotMapping finalDot=new DotMapping(reactor_width-1,reactor_height-1);
+  for (int i=0; i < number_of_neurons_x; i++)
+  {
+    
+    for (int j=0; j < number_of_neurons_y; j++){
+      //<>//
+      int rndX=int(random(minX,maxX));
+      int rndY=int(random(minY,maxY));
+      int maxFillX=i+offsetX+rndX;
+      int maxFillY= j+offsetY+rndY;
+      if (i+offsetX+rndX>=(reactor_width-1)) maxFillX=reactor_width;
+      if (j+offsetY+rndY>=(reactor_height-1)) maxFillY=reactor_height;
+      int dot=0;
+      int iFillX=0,iFillY=0;
+      for (iFillX=i+offsetX; iFillX<maxFillX;iFillX++)
+        {
+         for (iFillY=j+offsetY; iFillY<maxFillY;iFillY++)
+         {
+            if (spikesMapping[i][j][dot]==null || !spikesMapping[i][j][dot].set)
+            {
+               spikesMapping[i][j][dot] = new DotMapping(iFillX,iFillY);
+                  println("[Debug] "+(iFillX)+" "+(iFillY));
+               dot++;
+            }
+           
+         } 
+        }
+       if (offsetX>299) 
+       {
+         println("[i Cycle] "+i); //<>//
+       }
+      offsetX=iFillX;
+      offsetY=iFillY;
+        
+     
+  }
+  }
+  
+ 
   
   
-  
-  
-}
+} //<>//
+
+
 
 /**
  Updates the state of neurons in the 2D array rewriting the potential and leakage values
