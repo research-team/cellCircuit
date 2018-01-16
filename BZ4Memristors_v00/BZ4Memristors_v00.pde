@@ -312,7 +312,7 @@ Boolean LowExc(float cx, float cy, float x, float y, float R)
 
 void SaveLapse(int t)
 {
-  String fname;
+  String fname; //<>//
   fname="";
   if (t<10) fname=fname+"0";
   if (t<100) fname=fname+"0";

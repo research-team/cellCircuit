@@ -119,7 +119,7 @@ Update the spikes mapping
 */
 void _updateSpikesMapping(int indexX, int indexY){
   DotMapping[] map=spikesMapping[indexX][indexY];
-  for  (int i=0; i < reactor_width*reactor_width; i++){
+  for  (int i=0; i < reactor_width*4; i++){
     if (map[i]!=null)
     {
       Spikes_pixels[map[i].x][map[i].y]++;
