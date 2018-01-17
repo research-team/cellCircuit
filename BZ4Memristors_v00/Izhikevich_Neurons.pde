@@ -23,7 +23,7 @@ int[][] NumFired = new int[number_of_neurons_y][number_of_neurons_x]; // the fir
 int[][] Spikes = new int[number_of_neurons_y][number_of_neurons_x]; // the number of spikse per neuron 2D matrix
 int[][] Spikes_pixels = new int[reactor_width][reactor_height];
 int offsetX; int offsetY;
-int maxDot=9;
+int maxDot=6;
 int neuro_time=0;
 int[][] drawFired= new int[reactor_width][reactor_height];
 float dI=4; //current increment controlled manually 
@@ -130,17 +130,33 @@ void _updateSpikesMapping(int indexX, int indexY){
     }
   }
 }
-
+int allocatedCount=0;
+DotMapping[] allocation=new DotMapping[reactor_width*reactor_height];
+ int theMaxAllocation=reactor_width*reactor_height-1;
 void setupIzhikevichN(){
   //setup mapping to pixels
-  
-  int totalNeurons=number_of_neurons_x*number_of_neurons_y;
+  int x=0,y=0;
+ 
+  for (int i=0; i<reactor_width*reactor_height; i++)
+  {
+      allocation[i]=new DotMapping(x,y);
+      if (x==(reactor_width-1))
+        {
+          x=0;
+          y++;
+         
+        }
+        else
+        {
+          x++;
+         
+        }
+  }
+  int totalNeurons=number_of_neurons_x*number_of_neurons_y; //<>//
   int totalReactorCapacity=reactor_width*reactor_height;
   float capacity=totalReactorCapacity/totalNeurons;
   int maxDot=floor(capacity);
   
-  //finalDot when we out of array and everything distributed already.
-   int iFillX=0,iFillY=0;
   for (int i=0; i < number_of_neurons_x; i++)
   {
     
@@ -158,31 +174,27 @@ void setupIzhikevichN(){
       for (int dti=0; dti<rndUpDot; dti++)
       {
         totalReactorCapacity--;
-        spikesMapping[i][j][dot]=new DotMapping(iFillX,iFillY);
-        println("[Debug] X:"+(iFillX)+" Y:"+(iFillY)+" Z:"+dot);
+        spikesMapping[i][j][dot]=_getNextDot();//new DotMapping(iFillX,iFillY);
+        println("[Debug] X:"+( spikesMapping[i][j][dot].x)+" Y:"+( spikesMapping[i][j][dot].y)+" Z:"+dot);
         dot++;
-        if (iFillX>=(reactor_width-1))
-        {
-          iFillX=0;
-          iFillY++;
-         
-        }
-        else
-        {
-          iFillX++;
-         
-        }
       }
       
         
      
   }
   }
-  
- 
-  
-  
+   
 } //<>//
+
+DotMapping _getNextDot(){
+    int alloc= (int)(random(0,theMaxAllocation));
+    DotMapping res=allocation[alloc]; //<>//
+    DotMapping swap = new DotMapping(res.x,res.y);
+    allocation[alloc]=allocation[theMaxAllocation];
+    allocation[theMaxAllocation]=swap;
+    theMaxAllocation--;
+    return res;
+}
 
 
 

@@ -6,7 +6,8 @@ boolean MEM_DEBUG = false;
 
 int number_of_pani_segments_x = 300;
 int number_of_pani_segments_y = 300;
-
+float R_mem_max_current=0;
+float R_pani_max_current=0;
 int number_of_memristors_x = 300;
 int number_of_memristors_y = 300;
 
