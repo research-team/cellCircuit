@@ -244,7 +244,7 @@ void Initialise_Neurons(){
   for (int i=0; i<number_of_neurons_x; i++) 
   {
     for (int j=0; j<number_of_neurons_y; j++){
-      Spikes[i][j] = ceil(random(0, 1)*1000);      
+      Spikes[i][j] = ceil(random(0, 1000));      
     }
   }
 }
