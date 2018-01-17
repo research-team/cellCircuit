@@ -472,11 +472,11 @@ void drawbz()
       int resistColor_mem=ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max_current - R_mem_min)*255);
       int R_log_col = ceil((R_mem_log-R_mem_min_log)/(R_mem_max_log - R_mem_min_log)*255);
       int weighted_color = (R_log_col + resistColor_pani)/2;
-      
+     //   stroke(0, resistColor_mem, 0);
+     // point(i, j+600);
       stroke(weighted_color, weighted_color , weighted_color);
       point(i, j+600);
-      // stroke(0, resistColor_pani, 0);
-      // point(i, j+600);
+    
       
       printCycle++;
       
