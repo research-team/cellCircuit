@@ -185,7 +185,7 @@ void setupIzhikevichN(){
   }
    
 } //<>//
-
+//Fisher Yates alg . https://stackoverflow.com/questions/196017/unique-non-repeating-random-numbers-in-o1
 DotMapping _getNextDot(){
     int alloc= (int)(random(0,theMaxAllocation));
     DotMapping res=allocation[alloc]; //<>//
