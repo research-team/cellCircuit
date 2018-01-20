@@ -36,8 +36,8 @@ void UpdateMemristorsStates()
       { 
         //rectangular spikes with period of 20 milliseconds
         R_mem[i][j] = R_spikes(Spikes_pixels[i][j], 20E-3, 20, true);
-        if (R_mem[i][j]>R_mem_max) R_mem_max = R_mem[i][j];
-        if (R_mem[i][j]<R_mem_min) R_mem_min = R_mem[i][j];
+        // if (R_mem[i][j]>R_mem_max) R_mem_max = R_mem[i][j];
+        // if (R_mem[i][j]<R_mem_min) R_mem_min = R_mem[i][j];
       } 
       if (MEM_DEBUG) println("[Memristors] R_mem="+R_mem[i][j]+" Fired=", Spikes[i][j]);
     }

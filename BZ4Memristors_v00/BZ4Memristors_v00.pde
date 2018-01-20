@@ -466,8 +466,10 @@ void drawbz()
       float R_mem_log = log(R_mem[i-1][j-1]);
       float R_mem_min_log = log(R_mem_min);
       float R_mem_max_log = log(R_mem_max);
+      if (R_pani[i-1][j-1] > R_pani_max_current) R_pani_max_current=R_pani[i-1][j-1];
+      if (R_mem[i-1][j-1] > R_mem_max_current) R_mem_max_current=R_mem[i-1][j-1];
       int resistColor_pani=ceil((R_pani[i-1][j-1]-R_pani_min)/(R_pani_max_current - R_pani_min)*255);
-      // int resistColor_mem=ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max_current - R_mem_min)*255);
+      int resistColor_mem=ceil((R_mem[i-1][j-1]-R_mem_min)/(R_mem_max_current - R_mem_min)*255);
       int R_log_col = ceil((R_mem_log-R_mem_min_log)/(R_mem_max_log - R_mem_min_log)*255);
       int weighted_color = (R_log_col + resistColor_pani)/2;
      //   stroke(0, resistColor_mem, 0);
