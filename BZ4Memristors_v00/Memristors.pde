@@ -11,8 +11,10 @@ float R_pani_max_current=0;
 int number_of_memristors_x = 300;
 int number_of_memristors_y = 300;
 
-float R_mem_min = 7.0E5;
-float R_mem_max = 1.0E8;
+float R_mem_min_global = 7.0E5;
+float R_mem_max_global = 1.0E8;
+float R_mem_min = R_mem_max_global;
+float R_mem_max = R_mem_min_global;
 //20 megaOm
 float R_pani_min = 20E6;
 float R_pani_max = 120E6;
@@ -34,6 +36,8 @@ void UpdateMemristorsStates()
       { 
         //rectangular spikes with period of 20 milliseconds
         R_mem[i][j] = R_spikes(Spikes_pixels[i][j], 20E-3, 20, true);
+        if (R_mem[i][j]>R_mem_max) R_mem_max = R_mem[i][j];
+        if (R_mem[i][j]<R_mem_min) R_mem_min = R_mem[i][j];
       } 
       if (MEM_DEBUG) println("[Memristors] R_mem="+R_mem[i][j]+" Fired=", Spikes[i][j]);
     }
